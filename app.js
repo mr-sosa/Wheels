@@ -3,9 +3,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+
+const { connect } = require('./lib/mongo');
+connect();
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./users/router');
-var tripsRouter = require('./trips/router');
+var usersRouter = require('./modules/users/router');
+var tripsRouter = require('./modules/trips/router');
 
 var app = express();
 
