@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars } = require('./controller');
-const { getAllCars, getCarById, createCar, updateCar, deleteCar } = require('../cars/controller');
+const { getCarById, createCar, updateCar, deleteCar } = require('../cars/controller');
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
@@ -42,15 +42,22 @@ router.delete('/:username', async function(req, res, next) {
 /* GET cars listing. */
 router.get('/:username/cars/', async function(req, res, next) {
   let username = req.params.username;
-  const cars = await getUserCars(username);
+  const user = await getUserByUserName(username)
+  res.json(user.cars); //user.cars[0] da el primer índice
+});
+
+router.get('/:username/cars1/', async function(req, res, next) {
+  let username = req.params.username;
+  const cars = await getUserCars(username)
   res.json(cars);
 });
 
 /* GET car */
 router.get('/:username/cars/:idC', async function(req, res, next) {
-  let idC = req.params.idC;
-  const car = await getCarById(idC);
-  res.json(car);
+  let idC = parseInt(req.params.idC);
+  let username = req.params.username;
+  const user = await getUserByUserName(username)
+  res.json(user.cars[idC]);
 });
 
 /** Create car */

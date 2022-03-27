@@ -37,18 +37,18 @@ async function createUser(user) {
         };
         }
     
-        const salt = bcryptjs.genSaltSync();
-        user.password = bcryptjs.hashSync(password, salt);
+        //const salt = bcryptjs.genSaltSync();
+        //user.password = bcryptjs.hashSync(password, salt);
     
         await getDbRef().collection(COLLECTION_NAME).insertOne(user);
-        const token = jwt.sign({ username, email }, jwtKey);
+        //const token = jwt.sign({ username, email }, jwtKey);
         return {
         success: true,
         data: {
             username,
             email,
         },
-        token,
+        //token,
         };
     } catch (error) {
         console.log(error);
@@ -61,7 +61,7 @@ async function createUser(user) {
     
 const checkIfUsernameExist = async (username) => {
 const existUser = await getUserByUserName(username);
-return existUser;
+return existUser
 };
 
 async function updateUser(user) {
@@ -89,20 +89,28 @@ async function deleteUser(username) {
         }
 };
 
+async function addCarToUser(username) {
+    try {
+        const user = await getDbRef()
+            .collection(COLLECTION_NAME)
+            .deleteOne({ username });
+        return { user };
+        } catch (error) {
+        return { error };
+        }
+};
+
 async function getUserCars(username) {
     try {
-        const user = getUserByUserName(username);
-        if (user.isDriver === false) {
-            return {
-                success: false,
-                msg: 'User is not a driver',
-            };
-            }
+        const user = await getUserByUserName(username);
+        console.log(user)
         return user.cars;
-    } catch (error) {
+      } catch (error) {
         return { error };
-    }
+      }
 };
+
+
 
 /* async function getUserCar(username, idC) {
     try {
