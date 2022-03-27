@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars } = require('./controller');
+const { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars , getUserCar, deleteCarFromUser, addCarToUser } = require('./controller');
 const { getCarById, createCar, updateCar, deleteCar } = require('../cars/controller');
 
 /* GET users listing. */
@@ -42,12 +42,6 @@ router.delete('/:username', async function(req, res, next) {
 /* GET cars listing. */
 router.get('/:username/cars/', async function(req, res, next) {
   let username = req.params.username;
-  const user = await getUserByUserName(username)
-  res.json(user.cars); //user.cars[0] da el primer índice
-});
-
-router.get('/:username/cars1/', async function(req, res, next) {
-  let username = req.params.username;
   const cars = await getUserCars(username)
   res.json(cars);
 });
@@ -56,13 +50,14 @@ router.get('/:username/cars1/', async function(req, res, next) {
 router.get('/:username/cars/:idC', async function(req, res, next) {
   let idC = parseInt(req.params.idC);
   let username = req.params.username;
-  const user = await getUserByUserName(username)
-  res.json(user.cars[idC]);
+  const car = await getUserCar(username,idC)
+  res.json(car);
 });
 
 /** Create car */
-router.post('/:username/cars/', async function (req, res, next) {
-  const response = await createCar(req.body);
+router.put('/:username/cars/', async function (req, res, next) {
+  let username = req.params.username;
+  const response = await addCarToUser(username, req.body);
   res.json(response);
 });
 
@@ -76,8 +71,9 @@ router.put('/:username/cars/:idC', async function (req, res, next) {
 /* DELETE car */
 router.delete('/:username/cars/:idC', async function(req, res, next) {
   let idC = req.params.idC;
-  const car = await deleteCar(idC);
-  res.json(car);
+  let username = req.params.username;
+  const response = await deleteCarFromUser(username,idC);
+  res.json(response);
 });
 
 module.exports = router;

@@ -2,6 +2,7 @@ const { getDbRef } = require('../../lib/mongo');
 const COLLECTION_NAME = 'users';
 let jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
+const { ObjectID, ObjectId } = require('mongodb');
 const jwtKey = process.env.JSON_TOKEN;
 
 const getAllUsers = async () => {
@@ -64,16 +65,16 @@ const existUser = await getUserByUserName(username);
 return existUser
 };
 
-async function updateUser(user) {
+async function updateUser(username_,user) {
     try {
-        const user = await getDbRef()
+        const newU = await getDbRef()
             .collection(COLLECTION_NAME)
             .updateOne(
-                { "username": user.username}, // Filtro al documento que queremos modificar
-                user // El cambio que se quiere realizar -- no estoy segura de que funcione
-            )
-        return { user };
+                {username: username_},
+                { $set: user });
+        return {newU};
         } catch (error) {
+            console.error(error)
         return { error };
         }
 };
@@ -89,13 +90,63 @@ async function deleteUser(username) {
         }
 };
 
-async function addCarToUser(username) {
+
+async function deleteCarFromUser(username_,idC) {
     try {
-        const user = await getDbRef()
+        const user = await getUserByUserName(username_);
+        const car = user.cars[idC];
+        if (user.isDriver===false){
+            return {
+                success: false,
+                msg: 'User is not a driver',
+            };
+        }
+        await getDbRef()
             .collection(COLLECTION_NAME)
-            .deleteOne({ username });
-        return { user };
-        } catch (error) {
+            .update(
+            { username : username_},
+            { $pull: { cars: { placa: car.placa } }}
+        );
+        
+        return {
+        success: true,
+        data: {
+            username_,
+        }
+        }} catch (error) {
+        return { error };
+        }
+};
+
+
+async function addCarToUser(username_,car) {
+    try {
+        const user = await getUserByUserName(username_);
+        if (user.isDriver===false){
+            return {
+                success: false,
+                msg: 'User is not a driver',
+            };
+        }
+        await getDbRef()
+            .collection(COLLECTION_NAME)
+            .update(
+            { username : username_},
+            { $pull: { cars: { placa: car.placa } }}
+        );
+        await getDbRef()
+            .collection(COLLECTION_NAME)
+            .update(
+            { username : username_},
+            { $push: {cars : car}}
+        );
+        
+        return {
+        success: true,
+        data: {
+            username_,
+        }
+        }} catch (error) {
         return { error };
         }
 };
@@ -103,6 +154,12 @@ async function addCarToUser(username) {
 async function getUserCars(username) {
     try {
         const user = await getUserByUserName(username);
+        if (user.isDriver===false){
+            return {
+                success: false,
+                msg: 'User is not a driver',
+            };
+        }
         console.log(user)
         return user.cars;
       } catch (error) {
@@ -111,23 +168,20 @@ async function getUserCars(username) {
 };
 
 
-
-/* async function getUserCar(username, idC) {
+async function getUserCar(username, idC) {
     try {
-        const user = getUserByUserName(username);
-        if (user.isDriver === false) {
+        const user = await getUserByUserName(username);
+        if (user.isDriver===false){
             return {
                 success: false,
                 msg: 'User is not a driver',
             };
-            }
-        const car = await getDbRef()
-        .collection(COLLECTION_NAME)
-        .find( {"cars.id": idC}, {_id: 0})
-        return car
-    } catch (error) {
+        }
+        console.log(user)
+        return user.cars[idC];
+      } catch (error) {
         return { error };
-    }
-}; */
+      }
+};
 
-module.exports = { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars };
+module.exports = { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars, getUserCar, deleteCarFromUser, addCarToUser };
