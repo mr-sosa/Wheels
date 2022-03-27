@@ -3,6 +3,7 @@ const COLLECTION_NAME = 'users';
 let jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const { ObjectID, ObjectId } = require('mongodb');
+const { getTripByID, updateTrip, createTrip, deleteTrip } = require('../trips/controller');
 const jwtKey = process.env.JSON_TOKEN;
 
 const getAllUsers = async () => {
@@ -38,11 +39,11 @@ async function createUser(user) {
         };
         }
     
-        //const salt = bcryptjs.genSaltSync();
-        //user.password = bcryptjs.hashSync(password, salt);
+        const salt = bcryptjs.genSaltSync();
+        user.password = bcryptjs.hashSync(password, salt);
     
         await getDbRef().collection(COLLECTION_NAME).insertOne(user);
-        //const token = jwt.sign({ username, email }, jwtKey);
+        const token = jwt.sign({ username, email }, jwtKey);
         return {
         success: true,
         data: {
@@ -184,4 +185,148 @@ async function getUserCar(username, idC) {
       }
 };
 
-module.exports = { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars, getUserCar, deleteCarFromUser, addCarToUser };
+/* Genericos */
+async function getUserTrips(username) {
+    try {
+        const user = await getUserByUserName(username);
+        if (user) {
+            return user.trips;
+        }
+        else{
+            return {
+                success: false,
+                msg: 'User no existe',
+            };
+        }
+      } catch (error) {
+        return { error };
+      }
+};
+
+
+async function getUserTrip(username, idT) {
+    try {
+        const user = await getUserByUserName(username);
+        if (user) {
+            return user.trips[idT];
+        }
+        else{
+            return {
+                success: false,
+                msg: 'User no existe',
+            };
+        }
+      } catch (error) {
+        return { error };
+      }
+};
+
+/* Para Driver */
+async function createTripU(username_,trip) {
+    try {
+
+        const user = await getUserByUserName(username_);
+        if(user.isDriver===true){
+            trip.driver = username_;
+            const newT =await createTrip(trip);
+            return newT; //{newT};
+        } else {
+            return {
+                success: false,
+                msg: 'El usuario no es conductor'
+            };
+        }
+    } catch (error) {
+        console.error(error);
+        return {
+            success: false,
+            msg: 'Internal error',
+        };
+    }
+};
+
+async function updateTripU(username_,id,trip) {
+    try {
+        if (trip.driver===username_){
+            const tripC = await updateTrip(id,trip);
+            return tripC; //{tripC};
+        }else {
+            return {
+                success: false,
+                msg: 'El usuario no es conductor del viaje. No tiene permiso para editarlo'
+            };
+        }        
+    } catch (error) {
+        console.error(error);
+        return { error };
+    }
+};
+
+/* Borrar viaje de la lista del usuario. */
+async function deleteTripFromUser(username_,id) {
+    try {
+        await getDbRef()
+        .collection(COLLECTION_NAME)
+        .update(
+        { username : username_},
+        { $pull: { trips: { tripId } }}
+        );
+        return {
+            success: true,
+            msg: 'Se eliminó el viaje de su lista'
+        };
+    }catch (error) {
+        console.error(error);
+        return { error };
+    }
+};
+
+/* Cancelar viaje */
+async function deleteTripU(username_,id) {
+    try {
+        const trip = getTripByID(id);
+        if (trip.driver===username_){
+            const passengers = trip.passengers
+            if(passengers){
+                passengers.forEach(usernameP => await deleteTripFromUser(usernameP,id));
+            }
+            await deleteTrip(id);
+        }
+        return await deleteTripFromUser(username_,id);                     
+    } catch (error) {
+        console.error(error);
+        return { error };
+    }
+};
+
+/* Para Pasajero */
+async function addTripToPassenger(username_, tripId) {
+    try { 
+        await getDbRef()
+        .collection(COLLECTION_NAME)
+        .update(
+        { username : username_},
+        { $pull: { trips: tripId }}
+        );
+        await getDbRef()
+        .collection(COLLECTION_NAME)
+        .update(
+        { username : username_ },
+        { $push: { trips: tripId}}
+        );
+        return { 
+            success: true,
+            data: {
+                tripId,
+                username_
+            }
+        };
+    } catch (error) {
+        console.error(error);
+        return { error };
+    }
+};
+
+module.exports = { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars,
+     getUserCar, deleteCarFromUser, addCarToUser, getUserTrips, getUserTrip, createTripU, updateTripU, deleteTripU,
+    addTripToPassenger };

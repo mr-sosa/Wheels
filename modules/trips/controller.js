@@ -33,21 +33,13 @@ async function getTripByID(id) {
 
 async function createTrip(trip) {
     try {
-        const user = await getUserByUserName(trip.driver);
-        if(user.isDriver===true){
-            const tripC = await getDbRef().collection(COLLECTION_NAME).insertOne(trip);
-            return {
-                success: true,
-                data: {
-                    id: tripC.insertedId
-                },
-            };
-        } else {
-            return {
-                success: false,
-                msg: 'El usuario no es conductor'
-            };
-        }
+        const tripC = await getDbRef().collection(COLLECTION_NAME).insertOne(trip);
+        return {
+            success: true,
+            data: {
+                id: tripC._id
+            }
+        };
     } catch (error) {
         console.error(error);
         return {
@@ -99,6 +91,13 @@ async function addPassengerToTrip(idTrip, passenger) {
     try {  
         const trip = await getTripByID(idTrip);
         if(trip.passengers.length < trip.quotas){
+            //Así nos aseguramos que solo esté una vez
+            await getDbRef()
+            .collection(COLLECTION_NAME)
+            .update(
+            { _id : ObjectId(idTrip) },
+            { $pull: { passengers: passenger}}
+            );
             await getDbRef()
                 .collection(COLLECTION_NAME)
                 .update(

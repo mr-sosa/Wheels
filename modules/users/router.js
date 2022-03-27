@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars , getUserCar, deleteCarFromUser, addCarToUser } = require('./controller');
-const { getCarById, createCar, updateCar, deleteCar } = require('../cars/controller');
+const { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars ,
+   getUserCar, deleteCarFromUser, addCarToUser, createTripU, updateTripU, deleteTripU, getUserTrips, getUserTrip, addTripToPassenger } = require('./controller');
+//const { getCarById, createCar, updateCar, deleteCar } = require('../cars/controller');
+const { getTripByID, deletePassengerToTrip, addPassengerToTrip } = require('../trips/controller');
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
@@ -42,7 +44,7 @@ router.delete('/:username', async function(req, res, next) {
 /* GET cars listing. */
 router.get('/:username/cars/', async function(req, res, next) {
   let username = req.params.username;
-  const cars = await getUserCars(username)
+  const cars = await getUserCars(username);
   res.json(cars);
 });
 
@@ -50,7 +52,7 @@ router.get('/:username/cars/', async function(req, res, next) {
 router.get('/:username/cars/:idC', async function(req, res, next) {
   let idC = parseInt(req.params.idC);
   let username = req.params.username;
-  const car = await getUserCar(username,idC)
+  const car = await getUserCar(username,idC);
   res.json(car);
 });
 
@@ -62,11 +64,11 @@ router.put('/:username/cars/', async function (req, res, next) {
 });
 
 /** Update car by id*/
-router.put('/:username/cars/:idC', async function (req, res, next) {
-  let idC = req.params.idC;
-  const response = await updateCar(idC, req.body);
-  res.json(response);
-});
+// router.put('/:username/cars/:idC', async function (req, res, next) {
+//   let idC = req.params.idC;
+//   const response = await updateCar(idC, req.body);
+//   res.json(response);
+// });
 
 /* DELETE car */
 router.delete('/:username/cars/:idC', async function(req, res, next) {
@@ -75,5 +77,59 @@ router.delete('/:username/cars/:idC', async function(req, res, next) {
   const response = await deleteCarFromUser(username,idC);
   res.json(response);
 });
+
+// Module of Trip
+
+/* GET trips listing. Da los ids*/
+router.get('/:username/trips/', async function(req, res, next) {
+  let username = req.params.username;
+  const trips = await getUserTrips(username);
+  res.json(trips);
+});
+
+/* GET trip */
+router.get('/:username/trips/:idT', async function(req, res, next) {
+  let idT = parseInt(req.params.idT);
+  let username = req.params.username;
+  const tripId = await getUserTrip(username,idT);
+  const trip = await getTripByID(tripId);
+  res.json(trip);
+});
+
+/** Create trip */
+router.put('/:username/trips/', async function (req, res, next) {
+  let username = req.params.username;
+  const response = await createTripU(username, req.body);
+  res.json(response);
+});
+
+/** Update trip by id*/
+router.put('/:username/trips/:idT', async function (req, res, next) {
+  let idT = req.params.idT;
+  let username = req.params.username;
+  const response = await updateTripU(username, idT, req.body);
+  res.json(response);
+});
+
+/* DELETE & cancel trip */
+router.delete('/:username/trips/:idT', async function(req, res, next) {
+  let idT = req.params.idT;
+  let username = req.params.username;
+  const response = await deleteTripU(username,idT);
+  const response1 =await deletePassengerToTrip(idT, username);
+  res.json(response);
+  res.json(response1);
+});
+
+/* Reservar trip */
+router.put('/:username/trips/:idT/reservar', async function(req, res, next) {
+  let idT = req.params.idT;
+  let username = req.params.username;
+  const response = await addTripToPassenger(username,idT);
+  const response1 =await addPassengerToTrip(idT, username);
+  res.json(response);
+  res.json(response1);
+});
+
 
 module.exports = router;
