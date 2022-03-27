@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { getAllUsers, getUserByUserName, createUser, updateUser, deleteUser, getUserCars ,
-   getUserCar, deleteCarFromUser, addCarToUser, createTripU, updateTripU, deleteTripU, getUserTrips, getUserTrip, addTripToPassenger } = require('./controller');
+   getUserCar, deleteCarFromUser, addCarToUser, createTripU, updateTripU, deleteTripU, 
+   getUserTrips, getUserTrip, addTripToPassenger } = require('./controller');
 //const { getCarById, createCar, updateCar, deleteCar } = require('../cars/controller');
 const { getTripByID, deletePassengerToTrip, addPassengerToTrip } = require('../trips/controller');
 
@@ -19,10 +20,26 @@ router.get('/:username', async function(req, res, next) {
 });
 
 /** Create user */
-router.post('/', async function (req, res, next) {
+/* router.post('/', async function (req, res, next) {
   const response = await createUser(req.body);
   res.json(response);
+}); */
+
+router.post('/', async function (req, res, next) {
+  try {
+    const result = await createUser(req.body);
+    if (result.success) {
+      res.cookie('token', result.token, { httpOnly: true });
+      res.status(201).send(result);
+    } else {
+      res.status(401).send(result);
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 });
+
 
 /** Update user by id*/
 router.put('/:username', async function (req, res, next) {

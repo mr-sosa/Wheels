@@ -11,6 +11,8 @@ connect();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./modules/users/router');
 var tripsRouter = require('./modules/trips/router');
+const authRouter = require('./modules/auth/router');
+const { checkToken } = require('./middlewares/jwt-validator');
 
 var app = express();
 
@@ -21,7 +23,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/v1', indexRouter);
+app.use('/v1/auth', authRouter);
 app.use('/v1/users', usersRouter);
+//app.use('/v1/trips', checkToken, tripsRouter);
 app.use('/v1/trips', tripsRouter);
 
 // catch 404 and forward to error handler

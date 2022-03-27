@@ -1,4 +1,4 @@
-const { getDbRef } = require('../../lib/mongo');
+/* const { getDbRef } = require('../../lib/mongo');
 const COLLECTION_NAME = 'cars';
 
 const getAllCars = async () => {
@@ -61,4 +61,4 @@ async function deleteCar(id) {
         }
 };
 
-module.exports = { getAllCars, getCarById, createCar, updateCar, deleteCar };
+module.exports = { getAllCars, getCarById, createCar, updateCar, deleteCar }; */

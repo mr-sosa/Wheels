@@ -50,7 +50,7 @@ async function createUser(user) {
             username,
             email,
         },
-        //token,
+        token,
         };
     } catch (error) {
         console.log(error);
@@ -288,9 +288,9 @@ async function deleteTripU(username_,id) {
         if (trip.driver===username_){
             const passengers = trip.passengers
             if(passengers){
-                passengers.forEach(usernameP => await deleteTripFromUser(usernameP,id));
-            }
+                passengers.forEach( async (usernameP) => await deleteTripFromUser(usernameP,id));
             await deleteTrip(id);
+            }
         }
         return await deleteTripFromUser(username_,id);                     
     } catch (error) {
