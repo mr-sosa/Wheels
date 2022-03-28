@@ -31,6 +31,32 @@ async function getTripByID(id) {
   }
 }
 
+async function getTripsByLOrigin(locality) {
+    try {
+      const trips = await getDbRef()
+        .collection(COLLECTION_NAME)
+        .find({ originLocality: locality })
+        .toArray();
+      return trips;
+    } catch (error) {
+      console.error(error);
+      return { error };
+    }
+}
+
+async function getTripsByLDestination(locality) {
+    try {
+      const trips = await getDbRef()
+        .collection(COLLECTION_NAME)
+        .find({ destinationLocality: locality })
+        .toArray();
+      return trips;
+    } catch (error) {
+      console.error(error);
+      return { error };
+    }
+}
+
 async function createTrip(trip) {
     try {
         const tripC = await getDbRef().collection(COLLECTION_NAME).insertOne(trip);
@@ -144,4 +170,5 @@ async function deletePassengerToTrip(idTrip, passenger) {
     }
 }
 
-module.exports = { getAllTrips, getTripByID, createTrip, updateTrip, deleteTrip, addPassengerToTrip, deletePassengerToTrip };
+module.exports = { getAllTrips, getTripByID, createTrip, updateTrip, deleteTrip, addPassengerToTrip, deletePassengerToTrip,
+getTripsByLOrigin, getTripsByLDestination };

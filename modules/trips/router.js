@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getAllTrips, getTripByID, createTrip, updateTrip, deleteTrip, addPassengerToTrip, deletePassengerToTrip } = require('./controller');
+const { getAllTrips, getTripByID, createTrip, updateTrip, deleteTrip, addPassengerToTrip, deletePassengerToTrip,
+   getTripsByLOrigin, getTripsByLDestination } = require('./controller');
 
 /* GET trips listing. */
 router.get('/', async function(req, res, next) {
@@ -15,7 +16,21 @@ router.get('/:id', async function(req, res, next) {
   res.json(trip);
 });
 
-/** Create trip */
+/* GET trips origin */
+router.get('/origin/:locality', async function(req, res, next) {
+  let locality = req.params.locality;
+  const trips = await getTripsByLOrigin(locality);
+  res.json(trips);
+});
+
+/* GET trips destination */
+router.get('/destination/:locality', async function(req, res, next) {
+  let locality = req.params.locality;
+  const trips = await getTripsByLDestination(locality);
+  res.json(trips);
+});
+
+/** Create trips */
 router.post('/', async function (req, res, next) {
   const response = await createTrip(req.body);
   res.json(response);
