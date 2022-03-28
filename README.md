@@ -21,3 +21,5 @@ Para poder utilizar la aplicación, el usuario debe registrarse y posteriormente
 3. Se puede proceder a utilizar las funcionalidades propias de cada rol: consultar, actualizar y eliminar información, crear, actualizar, reservar y cancelar viajes. Los endpoints válidos, junto con los parámetros adecuados se encuentran en la Wiki.
 
 ## URL video funcionalidad
+
+https://youtu.be/37pe-a_cOmc
