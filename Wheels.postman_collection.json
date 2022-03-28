@@ -417,7 +417,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/u-prueba/trips/",
+							"raw": "http://localhost:3000/v1/users/up-prueba/trips/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -426,7 +426,7 @@
 							"path": [
 								"v1",
 								"users",
-								"u-prueba",
+								"up-prueba",
 								"trips",
 								""
 							]
@@ -534,7 +534,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/trips/62400a61303f46dbcdb6b963",
+							"raw": "http://localhost:3000/v1/trips/62422f79459d1c6d26f0131a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -543,7 +543,7 @@
 							"path": [
 								"v1",
 								"trips",
-								"62400a61303f46dbcdb6b963"
+								"62422f79459d1c6d26f0131a"
 							]
 						}
 					},
@@ -578,7 +578,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/trips/6240050844c96daa70b5b69d",
+							"raw": "http://localhost:3000/v1/trips/62422f79459d1c6d26f0131a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -587,7 +587,7 @@
 							"path": [
 								"v1",
 								"trips",
-								"6240050844c96daa70b5b69d"
+								"62422f79459d1c6d26f0131a"
 							]
 						}
 					},
@@ -631,7 +631,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/trips/62400a61303f46dbcdb6b963",
+							"raw": "http://localhost:3000/v1/trips/62422f79459d1c6d26f0131a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -640,7 +640,7 @@
 							"path": [
 								"v1",
 								"trips",
-								"62400a61303f46dbcdb6b963"
+								"62422f79459d1c6d26f0131a"
 							]
 						}
 					},
@@ -725,7 +725,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mr-sosa/trips/62420eb437459295598b0bc9/reservar/",
+							"raw": "http://localhost:3000/v1/users/up-user/trips/62422f79459d1c6d26f0131a/reservar/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -734,9 +734,9 @@
 							"path": [
 								"v1",
 								"users",
-								"mr-sosa",
+								"up-user",
 								"trips",
-								"62420eb437459295598b0bc9",
+								"62422f79459d1c6d26f0131a",
 								"reservar",
 								""
 							]
