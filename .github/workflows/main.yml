@@ -16,11 +16,10 @@ jobs:
           node-version: '12.x'
       - name: npm install 
         run: npm install  
-      - name: lint
-        run: npm run start
       - uses: akhileshns/heroku-deploy@master
         with:
           heroku_api_key: 4d8c85c1-132b-4669-8ac0-ce4a61d3bba6
           heroku_app_name: "202210_S2_E2"
           heroku_email: "mr.sosa@uniandes.edu.co"
-        
+      - name: start
+        run: npm run start
