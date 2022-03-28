@@ -25,22 +25,6 @@ router.get('/:username', async function(req, res, next) {
   res.json(response);
 }); */
 
-router.post('/', async function (req, res, next) {
-  try {
-    const result = await createUser(req.body);
-    if (result.success) {
-      res.cookie('token', result.token, { httpOnly: true });
-      res.status(201).send(result);
-    } else {
-      res.status(401).send(result);
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).send(error);
-  }
-});
-
-
 /** Update user by id*/
 router.put('/:username', async function (req, res, next) {
   let username = req.params.username;

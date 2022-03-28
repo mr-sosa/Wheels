@@ -1,4 +1,5 @@
 const express = require('express');
+const { createUser } = require('../users/controller');
 const router = express.Router();
 var { login } = require('./controller');
 
@@ -13,6 +14,22 @@ router.post('/login', async function (req, res, next) {
     res.status(200).send(response);
   } else {
     res.status(401).send(response);
+  }
+});
+
+/*register*/
+router.post('/register', async function (req, res, next) {
+  try {
+    const result = await createUser(req.body);
+    if (result.success) {
+      res.cookie('token', result.token, { httpOnly: true });
+      res.status(201).send(result);
+    } else {
+      res.status(401).send(result);
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
   }
 });
 
