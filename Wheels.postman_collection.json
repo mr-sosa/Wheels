@@ -147,7 +147,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"mv-garcia0\",\n    \"mail\": \"mv.garcia@uniandes.edu.co\",\n    \"name\": \"Valentina G\",\n    \"telephone\": \"3134059779\",\n    \"address\": \"Casa\",\n    \"password\": \"isis3710\",\n    \"isDriver\": true\n}",
+							"raw": "{\n    \"username\": \"u-prueba\",\n    \"email\": \"u.prueba@uniandes.edu.co\",\n    \"name\": \"Usuario conductor update\",\n    \"telephone\": \"3111111111\",\n    \"address\": \"Casa\",\n    \"password\": \"isis3710\",\n    \"isDriver\": true,\n    \"cars\":[{\n    \"placa\":\"BBB111\",\n    \"marca\": \"carro\",\n    \"modelo\": \"2022\",\n    \"color\": \"negro\"\n}]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -155,7 +155,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia0",
+							"raw": "http://localhost:3000/v1/users/u-prueba",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -164,7 +164,7 @@
 							"path": [
 								"v1",
 								"users",
-								"mv-garcia0"
+								"u-prueba"
 							]
 						}
 					},
@@ -176,7 +176,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/up-prueba",
+							"raw": "http://localhost:3000/v1/users/u-prueba",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -185,7 +185,7 @@
 							"path": [
 								"v1",
 								"users",
-								"up-prueba"
+								"u-prueba"
 							]
 						}
 					},
@@ -479,7 +479,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mr-sosa/trips/",
+							"raw": "http://localhost:3000/v1/users/up-prueba/trips/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -488,7 +488,7 @@
 							"path": [
 								"v1",
 								"users",
-								"mr-sosa",
+								"up-prueba",
 								"trips",
 								""
 							]
@@ -599,7 +599,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/trips/1",
+							"raw": "http://localhost:3000/v1/users/mv-garcia/trips/0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -610,7 +610,7 @@
 								"users",
 								"mv-garcia",
 								"trips",
-								"1"
+								"0"
 							]
 						}
 					},
@@ -623,7 +623,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"originAddress\": \"Calle origen333\",\r\n    \"destinationAddress\": \"Calle destino5\",\r\n    \"originLocality\": \"Localidad origen\",\r\n    \"destinationLocality\": \"Localidad destino\",\r\n    \"cost\": 4000,\r\n    \"quotas\": 3,\r\n    \"route\": \"Avenida - Calle\",\r\n    \"flexible\": true,\r\n    \"date\": \"25/03/2022\",\r\n    \"hour\": \"06:00 am\",\r\n    \"passengers\": [\r\n        {\r\n            \"username\": \"mv-garcia1\"\r\n        }\r\n    ],\r\n    \"driver\": \"mv-garcia\"\r\n}",
+							"raw": "{\r\n    \"originAddress\": \"Calle origen333\",\r\n    \"destinationAddress\": \"Calle destino5\",\r\n    \"originLocality\": \"Suba\",\r\n    \"destinationLocality\": \"Chapinero\",\r\n    \"cost\": 4000,\r\n    \"quotas\": 3,\r\n    \"route\": \"Avenida - Calle\",\r\n    \"flexible\": true,\r\n    \"date\": \"25/03/2022\",\r\n    \"hour\": \"06:00 am\",\r\n    \"passengers\": [\r\n        {\r\n            \"username\": \"mv-garcia1\"\r\n        }\r\n    ],\r\n    \"driver\": \"mv-garcia\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -653,7 +653,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"originAddress\": \"prueba 1 update test\",\r\n    \"destinationAddress\": \"Calle destino5\",\r\n    \"originLocality\": \"Localidad origen\",\r\n    \"destinationLocality\": \"Localidad destino\",\r\n    \"cost\": 4000,\r\n    \"quotas\": 3,\r\n    \"route\": \"Avenida - Calle\",\r\n    \"flexible\": true,\r\n    \"date\": \"25/03/2022\",\r\n    \"hour\": \"06:00 am\",\r\n    \"driver\": \"mv-garcia\"\r\n}",
+							"raw": "{\r\n    \"originAddress\": \"prueba 1 update test\",\r\n    \"destinationAddress\": \"Calle destino5\",\r\n    \"originLocality\": \"Suba\",\r\n    \"destinationLocality\": \"Chapinero\",\r\n    \"cost\": 4000,\r\n    \"quotas\": 3,\r\n    \"route\": \"Avenida - Calle\",\r\n    \"flexible\": true,\r\n    \"date\": \"25/03/2022\",\r\n    \"hour\": \"06:00 am\",\r\n    \"driver\": \"mv-garcia\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -661,7 +661,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/trips/1",
+							"raw": "http://localhost:3000/v1/users/mv-garcia/trips/0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -672,7 +672,7 @@
 								"users",
 								"mv-garcia",
 								"trips",
-								"1"
+								"0"
 							]
 						}
 					},
