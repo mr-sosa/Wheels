@@ -114,9 +114,10 @@ router.get('/:username/trips/:idT', async function(req, res, next) {
 });
 
 /** Create trip */
-router.put('/:username/trips/', async function (req, res, next) {
+router.post('/:username/trips/', async function (req, res, next) {
   let username = req.params.username;
-  const response = await createTripU(username, req.body);
+  const idT = await createTripU(username, req.body);
+  const response = await addTripToPassenger(username,idT);
   res.json(response);
 });
 
@@ -124,7 +125,8 @@ router.put('/:username/trips/', async function (req, res, next) {
 router.put('/:username/trips/:idT', async function (req, res, next) {
   let idT = req.params.idT;
   let username = req.params.username;
-  const response = await updateTripU(username, idT, req.body);
+  const tripId = await getUserTrip(username,idT);
+  const response = await updateTripU(username, tripId, req.body);
   res.json(response);
 });
 
@@ -132,10 +134,10 @@ router.put('/:username/trips/:idT', async function (req, res, next) {
 router.delete('/:username/trips/:idT', async function(req, res, next) {
   let idT = req.params.idT;
   let username = req.params.username;
-  const response = await deleteTripU(username,idT);
-  const response1 =await deletePassengerToTrip(idT, username);
+  const tripId = await getUserTrip(username,idT);
+  const response1 =await deletePassengerToTrip(tripId, username);
+  const response = await deleteTripU(username,tripId);
   res.json(response);
-  res.json(response1);
 });
 
 /* Reservar trip */
@@ -144,7 +146,6 @@ router.put('/:username/trips/:idT/reservar', async function(req, res, next) {
   let username = req.params.username;
   const response = await addTripToPassenger(username,idT);
   const response1 =await addPassengerToTrip(idT, username);
-  res.json(response);
   res.json(response1);
 });
 

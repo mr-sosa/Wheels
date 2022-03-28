@@ -229,7 +229,7 @@ async function createTripU(username_,trip) {
         if(user.isDriver===true){
             trip.driver = username_;
             const newT =await createTrip(trip);
-            return newT; //{newT};
+            return newT.data.toString(); 
         } else {
             return {
                 success: false,
@@ -249,7 +249,7 @@ async function updateTripU(username_,id,trip) {
     try {
         if (trip.driver===username_){
             const tripC = await updateTrip(id,trip);
-            return tripC; //{tripC};
+            return tripC;
         }else {
             return {
                 success: false,
@@ -263,16 +263,17 @@ async function updateTripU(username_,id,trip) {
 };
 
 /* Borrar viaje de la lista del usuario. */
-async function deleteTripFromUser(username_,id) {
+async function deleteTripFromUser(username_,tripId) {
     try {
         await getDbRef()
         .collection(COLLECTION_NAME)
         .update(
         { username : username_},
-        { $pull: { trips: { tripId } }}
+        { $pull: { trips: tripId }}
         );
         return {
             success: true,
+            data: tripId,
             msg: 'Se eliminó el viaje de su lista'
         };
     }catch (error) {
@@ -282,17 +283,25 @@ async function deleteTripFromUser(username_,id) {
 };
 
 /* Cancelar viaje */
-async function deleteTripU(username_,id) {
+async function deleteTripU(username_,tripId) {
     try {
-        const trip = getTripByID(id);
+        const trip = await getTripByID(tripId);
         if (trip.driver===username_){
             const passengers = trip.passengers
             if(passengers){
-                passengers.forEach( async (usernameP) => await deleteTripFromUser(usernameP,id));
-            await deleteTrip(id);
+                passengers.forEach( async (usernameP) =>{
+                     try{
+                         await deleteTripFromUser(usernameP,tripId);
+                        }catch (error) {
+                            console.error(error);
+                            return { error };
+                    }
+                });
             }
+            await deleteTrip(tripId);
         }
-        return await deleteTripFromUser(username_,id);                     
+        const resp = await deleteTripFromUser(username_,tripId);
+        return  resp;                    
     } catch (error) {
         console.error(error);
         return { error };

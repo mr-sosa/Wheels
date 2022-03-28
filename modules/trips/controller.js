@@ -36,9 +36,7 @@ async function createTrip(trip) {
         const tripC = await getDbRef().collection(COLLECTION_NAME).insertOne(trip);
         return {
             success: true,
-            data: {
-                id: tripC._id
-            }
+            data: tripC.insertedId
         };
     } catch (error) {
         console.error(error);
@@ -90,7 +88,7 @@ async function deleteTrip(id) {
 async function addPassengerToTrip(idTrip, passenger) {
     try {  
         const trip = await getTripByID(idTrip);
-        if(trip.passengers.length < trip.quotas){
+        if( !trip.passengers || trip.passengers.length < trip.quotas){
             //Así nos aseguramos que solo esté una vez
             await getDbRef()
             .collection(COLLECTION_NAME)
