@@ -14,102 +14,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
-							"path": [
-								"v1",
-								"users",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create user conductor",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"u-prueba\",\n    \"email\": \"u.prueba@uniandes.edu.co\",\n    \"name\": \"Usuario conductor\",\n    \"telephone\": \"3111111111\",\n    \"address\": \"Casa\",\n    \"password\": \"isis3710\",\n    \"isDriver\": true,\n    \"cars\":[{\n    \"placa\":\"BBB111\",\n    \"marca\": \"carro\",\n    \"modelo\": \"2022\",\n    \"color\": \"negro\"\n}]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/v1/users/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"v1",
-								"users",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create user pasajero",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"up-prueba\",\n    \"email\": \"up.prueba@uniandes.edu.co\",\n    \"name\": \"Usuario pasajero\",\n    \"telephone\": \"3111111112\",\n    \"address\": \"Casa\",\n    \"password\": \"isis3710-1\",\n    \"isDriver\": false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/v1/users/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"v1",
-								"users",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create user",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"mv-garcia\",\n    \"email\": \"mv.garcia@uniandes.edu.co\",\n    \"name\": \"Valentina\",\n    \"telephone\": \"3134059779\",\n    \"address\": \"Casa\",\n    \"password\": \"isis3710\",\n    \"isDriver\": true,\n    \"cars\":[{\n    \"placa\":\"ABC123\",\n    \"marca\": \"carro\",\n    \"modelo\": \"2022\",\n    \"color\": \"negro\"\n}]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/v1/users/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -125,12 +33,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/u-prueba",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/u-prueba",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -155,12 +61,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/u-prueba",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/u-prueba",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -176,12 +80,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/u-prueba",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/u-prueba",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -202,12 +104,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/cars/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/cars/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -237,12 +137,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/cars/0",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/cars/0",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -269,12 +167,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/cars/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/cars/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -301,12 +197,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/cars/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/cars/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -324,12 +218,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/cars/1",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/cars/1",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -352,12 +244,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/trips/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/trips/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"trips",
@@ -373,12 +263,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/trips/origin/Suba",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/trips/origin/Suba",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"trips",
@@ -395,12 +283,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/trips/destination/Chapinero",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/trips/destination/Chapinero",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"trips",
@@ -417,46 +303,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/up-prueba/trips/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/up-prueba/trips/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
 								"up-prueba",
-								"trips",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create trip",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"originAddress\": \"falsssaaa\",\n    \"destinationAddress\": \"Calle destino5\",\n    \"originLocality\": \"Suba\",\n    \"destinationLocality\": \"Chapinero\",\n    \"cost\": 4000,\n    \"quotas\": 3,\n    \"route\": \"Avenida - Calle\",\n    \"flexible\": true,\n    \"date\": \"25/03/2022\",\n    \"hour\": \"06:00 am\",\n    \"passengers\": [\n        {\n            \"username\": \"mv-garcia1\"\n        }\n    ],\n    \"driver\": \"mr-sosa\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/v1/trips/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"v1",
 								"trips",
 								""
 							]
@@ -479,12 +333,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/up-prueba/trips/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/up-prueba/trips/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -511,12 +363,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/trips/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/trips/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -534,12 +384,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/trips/62422f79459d1c6d26f0131a",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/trips/62422f79459d1c6d26f0131a",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"trips",
@@ -555,39 +403,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/trips/0",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/trips/0",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
 								"mv-garcia",
 								"trips",
 								"0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete trip",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/v1/trips/62422f79459d1c6d26f0131a",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"v1",
-								"trips",
-								"62422f79459d1c6d26f0131a"
 							]
 						}
 					},
@@ -599,48 +424,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/trips/0",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/trips/0",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
 								"mv-garcia",
 								"trips",
 								"0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update trip",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"originAddress\": \"Calle origen333\",\r\n    \"destinationAddress\": \"Calle destino5\",\r\n    \"originLocality\": \"Suba\",\r\n    \"destinationLocality\": \"Chapinero\",\r\n    \"cost\": 4000,\r\n    \"quotas\": 3,\r\n    \"route\": \"Avenida - Calle\",\r\n    \"flexible\": true,\r\n    \"date\": \"25/03/2022\",\r\n    \"hour\": \"06:00 am\",\r\n    \"passengers\": [\r\n        {\r\n            \"username\": \"mv-garcia1\"\r\n        }\r\n    ],\r\n    \"driver\": \"mv-garcia\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/v1/trips/62422f79459d1c6d26f0131a",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"v1",
-								"trips",
-								"62422f79459d1c6d26f0131a"
 							]
 						}
 					},
@@ -661,50 +454,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/mv-garcia/trips/0",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/mv-garcia/trips/0",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
 								"mv-garcia",
 								"trips",
 								"0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Passenger to Trip",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"11111\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/v1/trips/62400a61303f46dbcdb6b963/passenger/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"v1",
-								"trips",
-								"62400a61303f46dbcdb6b963",
-								"passenger",
-								""
 							]
 						}
 					},
@@ -725,12 +484,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/users/up-user/trips/62422f79459d1c6d26f0131a/reservar/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/users/up-user/trips/62422f79459d1c6d26f0131a/reservar/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"users",
@@ -738,38 +495,6 @@
 								"trips",
 								"62422f79459d1c6d26f0131a",
 								"reservar",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Passenger to Trip Copy",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"m245r3\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/v1/trips/62400a61303f46dbcdb6b963/passenger/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"v1",
-								"trips",
-								"62400a61303f46dbcdb6b963",
-								"passenger",
 								""
 							]
 						}
@@ -788,7 +513,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"u-prueba\",\n    \"password\": \"isis3710\"\n}",
+							"raw": "{\n    \"username\": \"mv-garcia\",\n    \"password\": \"isis3710\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -796,16 +521,101 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/auth/login",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/v1/auth/login",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "3000",
 							"path": [
 								"v1",
 								"auth",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register conductor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"u-prueba\",\n    \"email\": \"u.prueba@uniandes.edu.co\",\n    \"name\": \"Usuario conductor\",\n    \"telephone\": \"3111111111\",\n    \"address\": \"Casa\",\n    \"password\": \"isis3710\",\n    \"isDriver\": true,\n    \"cars\":[{\n    \"placa\":\"BBB111\",\n    \"marca\": \"carro\",\n    \"modelo\": \"2022\",\n    \"color\": \"negro\"\n}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/auth/register/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register pasajero",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"up-prueba\",\n    \"email\": \"up.prueba@uniandes.edu.co\",\n    \"name\": \"Usuario pasajero\",\n    \"telephone\": \"3111111112\",\n    \"address\": \"Casa\",\n    \"password\": \"isis3710-1\",\n    \"isDriver\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/auth/register/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"mv-garcia\",\n    \"email\": \"mv.garcia@uniandes.edu.co\",\n    \"name\": \"Valentina\",\n    \"telephone\": \"3134059779\",\n    \"address\": \"Casa\",\n    \"password\": \"isis3710\",\n    \"isDriver\": true,\n    \"cars\":[{\n    \"placa\":\"ABC123\",\n    \"marca\": \"carro\",\n    \"modelo\": \"2022\",\n    \"color\": \"negro\"\n}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/auth/register/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"register",
+								""
 							]
 						}
 					},
