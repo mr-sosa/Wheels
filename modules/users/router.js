@@ -101,8 +101,14 @@ router.get('/:username/trips/:idT', async function(req, res, next) {
 router.post('/:username/trips/', async function (req, res, next) {
   let username = req.params.username;
   const idT = await createTripU(username, req.body);
-  const response = await addTripToPassenger(username,idT);
+  console.log(typeof(idT))
+  if(typeof(idT)==="string"){
+    const response = await addTripToPassenger(username,idT);
   res.json(response);
+  }
+  else{
+    res.json(idT)
+  }
 });
 
 /** Update trip by id*/
