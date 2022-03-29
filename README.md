@@ -7,12 +7,13 @@
 Nuestro proyecto consiste en que usuarios de la Universidad de los Andes puedan ya sea trasladar o ser trasladado por otros miembros de la comunidad uniandina a sus destinos. 
 
 Los usuarios pueden ser de tipo conductor o pasajero:
-- El pasajero puede reservar viajes y cancelarlos.
+- El pasajero puede reservar viajes y cancelar el cupo.
 - El conductor puede crear viajes, actualizarlos y eliminarlos. Pero también tiene las funcionalidades de un pasajero.
 
-Para poder utilizar la aplicación, el usuario debe registrarse y posteriormente entrar a la aplicación mediante un login.
+Para poder utilizar la aplicación se debe iniciar sesión primero, si no se conoce el userName y constraseña entonces se debe registrar primero.
 
 ## URL live demo
+https://wheelsuniandes-project.herokuapp.com/
 
 ## Instrucciones de uso
 
