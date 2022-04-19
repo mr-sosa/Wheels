@@ -1,0 +1,36 @@
+.title{
+
+    font-family: 'Bubblegum Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 119px;
+    line-height: 154px;
+    /* identical to box height, or 129% */
+
+    letter-spacing: -0.015em;
+
+    color: #1d1b1b;
+}
+
+.button-style{
+    width: 8.375rem;
+    height: 3.125rem;
+    background: #DDE0E3;
+    box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.3);
+    border-radius: 13px;
+}
+
+.button-text{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 23px;
+    /* identical to box height, or 142% */
+
+    text-align: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    color: #1D2D44;
+}
