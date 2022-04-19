@@ -20,13 +20,19 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'front/build')));
 
 app.use('/v1', indexRouter);
 app.use('/v1/auth', authRouter);
 app.use('/v1/users', checkToken, usersRouter);
 app.use('/v1/trips', checkToken, tripsRouter);
 //app.use('/v1/trips', tripsRouter);
+
+app.get("*",(req,res)=>{
+  console.log(path.join(__dirname, "front/build/index.htmml"))
+  //falta
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -134,9 +134,10 @@ router.delete('/:username/trips/:idT', async function(req, res, next) {
 router.put('/:username/trips/:idT/reservar', async function(req, res, next) {
   let idT = req.params.idT;
   let username = req.params.username;
+  console.log(typeof(idT))
   const response = await addTripToPassenger(username,idT);
   const response1 =await addPassengerToTrip(idT, username);
-  res.json(response1);
+  res.json(response);
 });
 
 
