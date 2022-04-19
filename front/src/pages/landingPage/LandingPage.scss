@@ -1,5 +1,15 @@
-.title{
+.landing{
+    display: flex;
+    flex-direction: column;
 
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: linear-gradient(0deg, rgba(29, 45, 68, 0.8), rgba(29, 45, 68, 0.8)), url('../../../data/city.jpg');
+}
+
+.title{
     font-family: 'Bubblegum Sans';
     font-style: normal;
     font-weight: 400;
@@ -8,8 +18,20 @@
     /* identical to box height, or 129% */
 
     letter-spacing: -0.015em;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #ffffff;
+}
 
-    color: #1d1b1b;
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .button-style{
