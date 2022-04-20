@@ -1,37 +1,44 @@
 .landing{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;   
+}
 
+body{
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background: linear-gradient(0deg, rgba(29, 45, 68, 0.8), rgba(29, 45, 68, 0.8)), url('../../../data/city.jpg');
+    background-image: linear-gradient(0deg, rgba(29, 45, 68, 0.8), rgba(29, 45, 68, 0.8)), url('../../../data/city.jpg');
+    
 }
 
 .title{
+    position: relative;
+    top: 6.25rem;
+
     font-family: 'Bubblegum Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 119px;
-    line-height: 154px;
+    font-size: 7.4375rem;
+    line-height: 9.625rem;
     /* identical to box height, or 129% */
 
     letter-spacing: -0.015em;
-    padding-top: 20%;
-    padding-bottom: 20%;
     margin-top: 0;
     margin-bottom: 0;
     color: #ffffff;
 }
 
 .buttons{
+    position: relative;
+    top: 25rem;
+
     display: flex;
     justify-content: space-around;
-    padding-left: 30%;
-    padding-right: 30%;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .button-style{
@@ -39,20 +46,24 @@
     height: 3.125rem;
     background: #DDE0E3;
     box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.3);
-    border-radius: 13px;
+    border-radius: .8125rem;
+    color: #1D2D44;
+}
+
+.button-style:hover{
+    background: #121A2B;
+    color: #ffffff !important;
 }
 
 .button-text{
     font-family: 'Lato';
     font-style: normal;
     font-weight: 800;
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 1rem;
+    line-height: 1.4375rem;
     /* identical to box height, or 142% */
 
     text-align: center;
-    letter-spacing: 1.25px;
+    letter-spacing: .0781rem;
     text-transform: uppercase;
-
-    color: #1D2D44;
 }
