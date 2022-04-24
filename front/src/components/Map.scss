@@ -1,0 +1,9 @@
+.Map{
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    pointer-events: all !important;
+}

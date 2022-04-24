@@ -1,0 +1,24 @@
+.Menu{
+    p{
+        margin: 0;
+    }
+}
+
+.Back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    pointer-events: none !important;
+    background: linear-gradient(180deg, rgba(29, 45, 68, 0) 50%, #1D2D44 92.6%);
+}
+
+#Back{
+    pointer-events: none !important;
+}
+
+.Map{
+    pointer-events: all !important;
+}
