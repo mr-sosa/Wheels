@@ -1,6 +1,62 @@
 .Menu{
-    p{
-        margin: 0;
+    position: absolute;
+    bottom: 0vh;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    &-Search{
+        background: white;
+        border-radius: .8125rem;
+        width: 70vw;
+        min-width: fit-content;
+        margin-left: 15vw;
+        margin-right: 15vw;
+
+        &-Text{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 39px;
+            /* identical to box height, or 162% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+    }
+
+    &-Buttons{
+        display: flex;
+        justify-content: center;
+
+        &-Style{
+            background: none;
+            display: flex;
+            width: 40vw;
+            justify-content: center;
+            align-items: center;
+
+            &-Img{
+                height: 5vh;
+            }
+
+            &-Text{
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 39px;
+                /* identical to box height, or 162% */
+    
+                text-align: center;
+    
+                color: #ffffff;
+            }
+        }
     }
 }
 
