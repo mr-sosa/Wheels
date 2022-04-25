@@ -31,7 +31,7 @@ app.use('/v1/trips', checkToken, tripsRouter);
 
 app.get("*",(req,res)=>{
   console.log(path.join(__dirname, "front/build/index.htmml"))
-  //falta
+  res.sendFile(path.join(__dirname, 'front/build/index.html'));
 });
 
 // catch 404 and forward to error handler
