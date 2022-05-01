@@ -57,7 +57,7 @@ export const LogIn = () => {
                     <img className='logo' src={logo} />
                 </div>
                 <form onSubmit={doLogin} className='container form'>
-                    <h1 id='form-tittle'>Sign in</h1>
+                    <h1 id='form-tittle'>Log in</h1>
                     <div className='mb-3'>
                         <label htmlFor='username' className='form-label'>
                             Username   
@@ -88,7 +88,7 @@ export const LogIn = () => {
                     </div>
                     <div className='container buttons'>
                         <button type='submit' className='btn btn-warning'>
-                            Sign In
+                            Log In
                         </button>
                         <Link to={'/signup'}>Sign up</Link>
                     </div>
