@@ -10,7 +10,11 @@ import passengerActive from './../../data/passengerActive.png';
 
 export const Home = () => {
     const [showResults, setShowResults] = useState(false)
-    const onClick = () => setShowResults(true)
+    const id = null
+    const onClick = () => {
+        setShowResults(true);
+    }
+    
     const onClick2 = () => setShowResults(false)
     return(
         <>
