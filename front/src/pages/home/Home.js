@@ -1,7 +1,7 @@
 import React from "react";
 import './Home.scss';
 
-import { Map } from './../../components/Map';
+import { Map } from '../../components/Map/Map';
 import driverNoActive from './../../data/driver-1.png';
 import passengerActive from './../../data/passenger-2.png';
 

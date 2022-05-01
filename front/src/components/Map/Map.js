@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { useJsApiLoader, GoogleMap } from '@react-google-maps/api';
 import './Map.scss';
-import tokens from './../tokens.json'
+import tokens from '../../tokens.json'
 const GOOGLE_MAPS_TOKEN = tokens.GOOGLE_MAPS_TOKEN;
 
 const bogota = { lat: 4.60971, lng: -74.08175 };
