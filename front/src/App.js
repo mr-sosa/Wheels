@@ -1,24 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
-import logo from './logo.svg';
+import { UserContext } from './context/UserContext';
 import './App.css';
+
 import { LandingPage } from './pages/landingPage/LandingPage';
 import { Home } from './pages/home/Home';
 import { CrearViaje } from './pages/crearViaje/CrearViaje';
 import { NoPage } from './pages/noPage/NoPage';
+import { LogIn } from './pages/logIn/LogIn';
 
 
 function App() {
+  const [user, setUser] = useState(null);
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path='/' element={<LandingPage/>}/>
-          <Route path='/home' element={<Home/>}/>
-          <Route path='/crearViaje' element={<CrearViaje/>}/>
-          <Route path='*' element={<NoPage/>}/>
-        </Routes>
-      </Router>
+      <UserContext.Provider value={{ user, setUser }}>
+        <Router>
+          <Routes>
+            <Route path='/' element={<LandingPage/>}/>
+            <Route path='/home' element={<Home/>}/>
+            <Route path='*' element={<NoPage/>}/>
+            <Route path='/crearViaje' element={<CrearViaje/>}/>
+            <Route path='/login' element={<LogIn/>}/>
+          </Routes>
+        </Router>
+      </UserContext.Provider>
     </>
   );
 }
