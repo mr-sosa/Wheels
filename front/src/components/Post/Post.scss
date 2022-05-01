@@ -1,0 +1,42 @@
+.Post{
+    &-Body{
+        &-Tittle{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+
+        &-Hour{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: left;
+
+            color: #000000;
+        }
+
+        &-Route{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height, or 162% */
+
+            text-align: center;
+
+            color: #42629E;
+        }
+    }
+}

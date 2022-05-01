@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
-import { Map } from './../../components/Map';
+import { Map } from '../../components/Map/Map';
 
 const url = 'v1/users/mv-garcia/trips/';
 
