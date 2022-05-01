@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import useCollapse from 'react-collapsed';
-import { Post } from './Post';
+import { Post } from '../Post/Post';
 import './Search.scss';
+
 
 function LocationsCollapsible() {
     const [isExpanded, setExpanded] = useState(false)
@@ -52,7 +53,7 @@ function LocationsCollapsible() {
     )
 }
 
-export const Search = () => {
+export const Search = (props) => {
 
     const [isExpanded, setExpanded] = useState(false)
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
@@ -111,14 +112,14 @@ export const Search = () => {
                             <div className="col"></div>
                         </div>
                         <div className="row">
-                            <Post
+                            <Post onClick={props.onClick}
                                     key={1}
                                     _id={"zzzzzzzz"}
                                     hour={6}
                                     route={"elm.route"}
                                     cost={"elm.cost"}
                             ></Post>
-                            <Post
+                            <Post onClick={props.onClick}
                                     key={1}
                                     _id={"zzzzzzzz"}
                                     hour={6}
@@ -126,7 +127,7 @@ export const Search = () => {
                                     cost={"elm.cost"}
                             ></Post>
                             {trips.map((elm, index) => (
-                            <Post
+                            <Post onClick={props.onClick}
                                 key={index}
                                 _id={elm._id}
                                 hour={elm.hour}
