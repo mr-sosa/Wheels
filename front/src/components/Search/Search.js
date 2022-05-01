@@ -127,7 +127,7 @@ export const Search = (props) => {
                                     cost={"elm.cost"}
                             ></Post>
                             {trips.map((elm, index) => (
-                            <Post onClick={props.onClick}
+                            <Post onClick={props.onClick(elm._id)}
                                 key={index}
                                 _id={elm._id}
                                 hour={elm.hour}
