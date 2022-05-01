@@ -58,6 +58,7 @@ async function getTripsByLDestination(locality) {
 }
 
 async function createTrip(trip) {
+    console.log(trip)
     try {
         const tripC = await getDbRef().collection(COLLECTION_NAME).insertOne(trip);
         return {
