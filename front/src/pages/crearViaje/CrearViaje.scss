@@ -1,0 +1,29 @@
+.login {
+  &-container {
+    display: flex;
+    justify-content: center;
+
+    background-color: white;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.form {
+  &-group {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  &-label{
+    font-weight: bold;
+  }
+}
+  
