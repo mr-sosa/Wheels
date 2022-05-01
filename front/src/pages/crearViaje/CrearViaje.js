@@ -4,7 +4,7 @@ import './CrearViaje.scss';
 
 import { Map } from './../../components/Map';
 
-const url = '/api/auth/login';
+const url = 'v1/users/mv-garcia/trips/';
 
 export const CrearViaje = () => {
   const [formValues, handleInputChange] = useForm({
@@ -12,7 +12,7 @@ export const CrearViaje = () => {
     password: ''
   });
 
-  const { username, password } = formValues;
+  const { flexible, localidadO, username, password } = formValues;
 
   useEffect(() => {
     console.log('username cambió');
@@ -43,19 +43,44 @@ export const CrearViaje = () => {
   return (
     <div className='login-container'>
       <form className='login-form' onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2>Crear Viaje</h2>
         <hr />
+        <div className='form-group'>
+          <label htmlFor='localidadO' className='form-label'>
+            Localidad Origen:
+          </label>
+          <select 
+            id="localidadO" 
+            className="form-control"
+            name='Localidad origen'
+            value={localidadO}
+            >
+            <option selected>Seleccione una opción...</option>
+            <option>Uniandes</option>
+            <option>Barrios Unidos</option>
+            <option>Chapinero</option>
+            <option>Engativá</option>
+            <option>Fontibón</option>
+            <option>Puente Aranda</option>
+          </select>
+        </div>
 
         <div className='form-group'>
-          <input
-            type='text'
-            name='username'
-            className='form-control'
-            placeholder='Tu usuario'
-            autoComplete='off'
-            value={username}
-            onChange={handleInputChange}
-          />
+          <label htmlFor='username' className='form-label'>
+            Username
+          </label>
+          <div >
+            <input
+              type='text'
+              name='username'
+              id='username'
+              className='form-control'
+              placeholder='Tu usuario'
+              autoComplete='off'
+              value={username}
+              onChange={handleInputChange}
+            />
+          </div>
         </div>
 
         <div className='form-group'>
@@ -66,6 +91,21 @@ export const CrearViaje = () => {
             placeholder='Tu contrasenia'
             autoComplete='off'
             value={password}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='flexible' className='form-label'>
+            Flexible
+          </label>
+          <input
+            id='flexible'
+            type='checkbox'
+            name='flexible'
+            className='form-check'
+            label = 'Flexible'
+            value={flexible}
             onChange={handleInputChange}
           />
         </div>

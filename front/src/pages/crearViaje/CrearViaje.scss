@@ -9,9 +9,21 @@
   &-form {
     display: flex;
     flex-direction: column;
-    width: 25rem;
+    width: 30rem;
     gap: 1rem;
     margin-bottom: 2rem;
+  }
+}
+
+.form {
+  &-group {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  &-label{
+    font-weight: bold;
   }
 }
   
