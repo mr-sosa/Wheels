@@ -1,0 +1,177 @@
+.container {
+    &-wheels{
+        display: flex;
+
+        @media only screen and (max-width: 1440px) {
+            flex-direction: column;
+            align-items: center;
+
+            h1 {
+                margin-top: 0;
+                margin-bottom: 0;
+        
+                font-family: 'Bubblegum Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 119px;
+                line-height: 154px;
+                letter-spacing: -0.015em;
+            
+                color: #FFFFFF;
+            }
+        
+            img{
+                width: 15vw;
+                min-width: 10rem;
+                margin-bottom: 10vh;
+            }
+        }
+        @media only screen and (min-width: 1440px) {
+            flex-direction: row;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding-left: 5vw;
+            padding-top: 2vh;
+
+            h1 {
+                margin-top: 0;
+                margin-bottom: 0;
+        
+                font-family: 'Bubblegum Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 119px;
+                line-height: 154px;
+                letter-spacing: -0.015em;
+            
+                color: #FFFFFF;
+            }
+        
+            img{
+                height: 15vh;
+                min-width: 5rem;
+                max-height: 9rem;
+                margin-left: 3vw;
+            }
+        }
+    }
+
+    &.login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+  
+        pre {
+            margin-top: 2rem;
+            background-color: rgb(233, 233, 233);
+        }
+    }
+  
+    &.form {
+        padding: 2%;
+        width: 70vw;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 16px;
+
+        h1{
+            margin-top: 0;
+            margin-bottom: 4%;
+
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 34px;
+            line-height: 55px;
+            text-align: center;
+
+            color: #000000;
+        }
+
+        .mb-3{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+
+            label{
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 39px;
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .form-control{
+                width: 75%;
+            }
+        }
+    }
+
+    &.buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+
+        button{
+            background: #FFC868;
+            border-color: #ffc868;
+            box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.3);
+            border-radius: 13px;
+
+            /* Button */
+
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 23px;
+            text-align: center;
+            letter-spacing: 1.25px;
+            text-transform: uppercase;
+
+            color: #000000;
+        }
+
+        button:hover{
+            background: #121A2B;
+            color: #ffffff !important;
+            border-color: #121A2B;
+        }
+
+        button:active{
+            background-color: #121A2B;
+            color: #ffffff !important;
+            border-color: #121A2B;
+        }
+
+        a{
+            text-decoration: none;
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            /* or 162% */
+
+            text-align: center;
+            letter-spacing: 0.005em;
+
+            color: #000000;
+        }
+    }
+
+  
+    .logout-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  }

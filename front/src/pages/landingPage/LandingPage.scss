@@ -52,18 +52,17 @@ body{
 
             cursor: pointer;
 
-            &-text{
-                font-family: 'Lato';
-                font-style: normal;
-                font-weight: 800;
-                font-size: 1rem;
-                line-height: 1.4375rem;
-                /* identical to box height, or 142% */
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 1rem;
+            line-height: 1.4375rem;
+            /* identical to box height, or 142% */
+        
+            text-align: center;
+            letter-spacing: .0781rem;
+            text-transform: uppercase;
             
-                text-align: center;
-                letter-spacing: .0781rem;
-                text-transform: uppercase;
-            }
         }
 
         &-style:hover{

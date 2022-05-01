@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
 import { UserContext } from './context/UserContext';
-import './App.css';
+import './App.scss';
 
 import { LandingPage } from './pages/landingPage/LandingPage';
 import { Home } from './pages/home/Home';
