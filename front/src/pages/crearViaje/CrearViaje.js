@@ -1,25 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
-import { Map } from './../../components/Map';
+import { Map } from '../../components/Map/Map';
 
-const url = 'v1/users/mv-garcia/trips/';
+const url = 'v1/users/mv-garcia/trips';
 
 export const CrearViaje = () => {
+
   const [formValues, handleInputChange] = useForm({
-    username: '',
-    password: ''
   });
 
-  const { flexible, localidadO, username, password } = formValues;
+  const [checked, setChecked] = useState(false);
+
+
+  const { flexible, localidadO, localidadD, direccionO, direccionD, cupos, precio, ruta,fecha, hora } = formValues;
 
   useEffect(() => {
-    console.log('username cambió');
-  }, [username]);
+    console.log('flexible cambió');
+  }, [flexible]);
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    formValues.flexible=checked
     console.log(formValues);
     try {
         let res = await fetch(url, {
@@ -33,8 +36,7 @@ export const CrearViaje = () => {
         console.log(res)
         let resJson = await res.json();
         console.log(resJson)
-        localStorage.setItem("token", resJson.token)
-        window.location.reload();
+        //window.location.reload();
       } catch (err) {
         console.log(err);
       }
@@ -54,6 +56,30 @@ export const CrearViaje = () => {
             className="form-control"
             name='Localidad origen'
             value={localidadO}
+            onChange={handleInputChange}
+            >
+            <option selected>Seleccione una opción...</option>
+            <option>Uniandes</option>
+            <option>Barrios Unidos</option>
+            <option>Chapinero</option>
+            <option>Engativá</option>
+            <option>Fontibón</option>
+            <option>Puente Aranda</option>
+          </select>
+        </div>
+
+        
+
+        <div className='form-group'>
+          <label htmlFor='localidadD' className='form-label'>
+            Localidad Destino:
+          </label>
+          <select 
+            id="localidadD" 
+            className="form-control"
+            name='Localidad destino'
+            value={localidadD}
+            onChange={handleInputChange}
             >
             <option selected>Seleccione una opción...</option>
             <option>Uniandes</option>
@@ -66,31 +92,77 @@ export const CrearViaje = () => {
         </div>
 
         <div className='form-group'>
-          <label htmlFor='username' className='form-label'>
-            Username
+          <label htmlFor='direccionO' className='form-label'>
+            Dirección origen:
           </label>
-          <div >
-            <input
-              type='text'
-              name='username'
-              id='username'
-              className='form-control'
-              placeholder='Tu usuario'
-              autoComplete='off'
-              value={username}
-              onChange={handleInputChange}
-            />
-          </div>
+          <input
+            type='text'
+            name='direccionO'
+            id='direccionO'
+            className='form-control'
+            placeholder='Dirección origen'
+            autoComplete='off'
+            value={direccionO}
+            onChange={handleInputChange}
+          />
         </div>
 
         <div className='form-group'>
+          <label htmlFor='direccionD' className='form-label'>
+            Dirección destino:
+          </label>
           <input
-            type='password'
-            name='password'
+            type='text'
+            name='direccionD'
             className='form-control'
-            placeholder='Tu contrasenia'
+            placeholder='Dirección destino'
             autoComplete='off'
-            value={password}
+            value={direccionD}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='precio' className='form-label'>
+            Precio:
+          </label>
+          <input
+            type='text'
+            name='precio'
+            className='form-control'
+            placeholder='4000'
+            autoComplete='off'
+            value={precio}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='cupos' className='form-label'>
+            Cupos:
+          </label>
+          <input
+            type='text'
+            name='cupos'
+            className='form-control'
+            placeholder='4'
+            autoComplete='off'
+            value={cupos}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='ruta' className='form-label'>
+            Ruta:
+          </label>
+          <input
+            type='text'
+            name='ruta'
+            className='form-control'
+            placeholder='Ruta'
+            autoComplete='off'
+            value={ruta}
             onChange={handleInputChange}
           />
         </div>
@@ -105,7 +177,33 @@ export const CrearViaje = () => {
             name='flexible'
             className='form-check'
             label = 'Flexible'
-            value={flexible}
+            checked={checked}
+            onChange={(e) => setChecked(e.target.checked)}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='fecha' className='form-label'>
+            Fecha:
+          </label>
+          <input
+            type='date'
+            name='fecha'
+            className='form-control'
+            value={fecha}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='hora' className='form-label'>
+            Hora:
+          </label>
+          <input
+            type='time'
+            name='hora'
+            className='form-control'
+            value={hora}
             onChange={handleInputChange}
           />
         </div>

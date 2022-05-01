@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import './Home.scss';
 
-import { Map } from './../../components/Map';
-import driverNoActive from './../../data/driver-1.png';
-import passengerActive from './../../data/passenger-2.png';
+import { Map } from '../../components/Map/Map';
+import { Search } from './../../components/Search/Search';
+import { Detail } from "../../components/Detail/Detail";
+import { Click } from "../../components/Post/Post";
+import driverNoActive from './../../data/driverNoActive.png';
+import passengerActive from './../../data/passengerActive.png';
 
 export const Home = () => {
+    const [showResults, setShowResults] = useState(false)
+    const id = null
+    const onClick = () => {
+        setShowResults(true);
+    }
+    
+    const onClick2 = () => setShowResults(false)
     return(
         <>
             <div className="Home">
                 <div className="Back" id="Back"></div>
                 <div className="Menu">
-                    <button className='Menu-Search'><a className='Menu-Search-Text'>¿A donde vas?</a></button>
+                    <button className='Menu-Search'>{ showResults ? <Detail onClick={onClick2}/> : <Search onClick={onClick}/> }</button>
                     <div className="Menu-Buttons">
                         <div className='Menu-Buttons-Style'>
                             <img src={passengerActive} className='Menu-Buttons-Style-Img' />

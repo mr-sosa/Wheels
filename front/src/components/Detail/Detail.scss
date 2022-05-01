@@ -1,0 +1,170 @@
+.Detail{
+    padding: 50px;
+    &-Destiny{
+        &-Label{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }   
+    }
+
+    &-Hour{
+        &-Label{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }     
+    }
+
+    &-Route{
+        &-Label{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height, or 162% */
+
+            text-align: center;
+
+            color: #42629E;
+        }
+    }
+
+    &-Flex{
+        &-Label{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+    }
+
+    &-Passengers{
+        &-Img{
+            width: 30px;
+            height: 30px;
+        }
+
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height, or 162% */
+
+            text-align: center;
+
+            color: #42629E;
+        }
+    }
+
+    &-Cost{
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+    }
+
+    &-Button{
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 23px;
+        /* identical to box height, or 142% */
+
+        text-align: center;
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+
+        color: #1D2D44;
+
+        width: auto;
+        height: 50px;
+        padding-top: 10px;
+
+        background: #FFC868;
+        box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.3);
+        border-radius: 13px;
+    }
+
+    &-Exit{
+        
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        /* identical to box height, or 162% */
+
+        text-align: center;
+
+        color: #42629E;
+    }
+}
