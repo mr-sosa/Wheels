@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import { LandingPage } from './pages/landingPage/LandingPage';
 import { Home } from './pages/home/Home';
+import { CrearViaje } from './pages/crearViaje/CrearViaje';
 import { NoPage } from './pages/noPage/NoPage';
 
 
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage/>}/>
           <Route path='/home' element={<Home/>}/>
+          <Route path='/crearViaje' element={<CrearViaje/>}/>
           <Route path='*' element={<NoPage/>}/>
         </Routes>
       </Router>
