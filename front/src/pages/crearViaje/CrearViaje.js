@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
@@ -7,12 +7,14 @@ import { Map } from '../../components/Map/Map';
 const url = 'v1/users/mv-garcia/trips';
 
 export const CrearViaje = () => {
+
   const [formValues, handleInputChange] = useForm({
-    username: '',
-    password: ''
   });
 
-  const { flexible, localidadO, localidadD, direccionO, direccionD, cupos, precio, ruta,fecha } = formValues;
+  const [checked, setChecked] = useState(false);
+
+
+  const { flexible, localidadO, localidadD, direccionO, direccionD, cupos, precio, ruta,fecha, hora } = formValues;
 
   useEffect(() => {
     console.log('flexible cambió');
@@ -20,6 +22,7 @@ export const CrearViaje = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    formValues.flexible=checked
     console.log(formValues);
     try {
         let res = await fetch(url, {
@@ -53,6 +56,7 @@ export const CrearViaje = () => {
             className="form-control"
             name='Localidad origen'
             value={localidadO}
+            onChange={handleInputChange}
             >
             <option selected>Seleccione una opción...</option>
             <option>Uniandes</option>
@@ -64,6 +68,8 @@ export const CrearViaje = () => {
           </select>
         </div>
 
+        
+
         <div className='form-group'>
           <label htmlFor='localidadD' className='form-label'>
             Localidad Destino:
@@ -73,6 +79,7 @@ export const CrearViaje = () => {
             className="form-control"
             name='Localidad destino'
             value={localidadD}
+            onChange={handleInputChange}
             >
             <option selected>Seleccione una opción...</option>
             <option>Uniandes</option>
@@ -170,8 +177,8 @@ export const CrearViaje = () => {
             name='flexible'
             className='form-check'
             label = 'Flexible'
-            value={flexible}
-            onChange={handleInputChange}
+            checked={checked}
+            onChange={(e) => setChecked(e.target.checked)}
           />
         </div>
 
@@ -184,6 +191,19 @@ export const CrearViaje = () => {
             name='fecha'
             className='form-control'
             value={fecha}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='hora' className='form-label'>
+            Hora:
+          </label>
+          <input
+            type='time'
+            name='hora'
+            className='form-control'
+            value={hora}
             onChange={handleInputChange}
           />
         </div>
