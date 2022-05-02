@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-import React, { useContext, useState } from "react";
-=======
+
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from './../../context/UserContext';
 import { Navigate } from 'react-router-dom';
->>>>>>> 6d1acde08c4d5ee55099bdea5793b5585d805a48
+
 import './Home.scss';
 
 import { Map } from '../../components/Map/Map';
@@ -16,7 +14,7 @@ import driverNoActive from './../../data/driverNoActive.png';
 import passengerActive from './../../data/passengerActive.png';
 import driverActive from './../../data/driverActive.png';
 import passengerNoActive from './../../data/passengerNoActive.png';
-import { Link, Navigate } from 'react-router-dom';
+
 import { CrearViaje } from "../crearViaje/CrearViaje";
 
 import Popup from 'reactjs-popup';
@@ -28,6 +26,8 @@ export const Home = () => {
     const onClick = () => {
         setShowResults(true);
     }
+
+    const { setUser, user } = useContext(UserContext);
 
     const [pMode, changeMode] = useState(true)
     console.log(pMode)
@@ -61,13 +61,9 @@ export const Home = () => {
     return(
         <>
             <div className="Home">
-<<<<<<< HEAD
-                <div className="Back" id="Back"></div>
-                {pMode?
-=======
                 {user && (<>
                     <div className="Back" id="Back"></div>
->>>>>>> 6d1acde08c4d5ee55099bdea5793b5585d805a48
+                    {pMode?
                     <div className="Menu">
                         <button className='Menu-Search'>{ showResults ? <Detail onClick={onClick2}/> : <Search onClick={onClick}/> }</button>
                         <div className="Menu-Buttons">
@@ -77,7 +73,6 @@ export const Home = () => {
                             </div>
                             <div className='Menu-Buttons-Style'>
                                 <img src={driverNoActive} className='Menu-Buttons-Style-Img' />
-<<<<<<< HEAD
                                 <a onClick={() =>changeMode(false)} className='Menu-Buttons-Style-Text'>Conductor</a>
                             </div>
                         </div>
@@ -101,13 +96,7 @@ export const Home = () => {
                     </div>
                 }
                 <Map></Map>
-=======
-                                <a className='Menu-Buttons-Style-Text'>Conductor</a>
-                            </div>
-                        </div>
-                    </div>
-                    <Map></Map>
-                    <div id='logout-container'>
+                <div id='logout-container'>
                         <button className='btn btn-warning' onClick={() => {
                                                                     localStorage.removeItem('username');
                                                                     localStorage.removeItem('token');
@@ -117,7 +106,6 @@ export const Home = () => {
                     </div></>
                 )}
                 {!user && (<Navigate to="/" />)}
->>>>>>> 6d1acde08c4d5ee55099bdea5793b5585d805a48
             </div>
         </>
     );
