@@ -19,6 +19,7 @@ import { CrearViaje } from "../crearViaje/CrearViaje";
 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { Button, Modal } from "react-bootstrap";
 
 export const Home = () => {
     const [showResults, setShowResults] = useState(false)
@@ -26,6 +27,11 @@ export const Home = () => {
     const onClick = () => {
         setShowResults(true);
     }
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const { setUser, user } = useContext(UserContext);
 
@@ -79,9 +85,8 @@ export const Home = () => {
                     </div>
                  :
                     <div className="Menu">
-                        <Popup trigger={<button className='Menu-Search'> Crear Viaje</button>} position="top center">
-                            <CrearViaje />
-                        </Popup>
+                        
+                        <button className='Menu-Search' onClick={() =>handleShow()}> Crear Viaje</button>
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
                                 <img src={passengerNoActive} className='Menu-Buttons-Style-Img' />
@@ -106,6 +111,12 @@ export const Home = () => {
                 )}
                 {!user && (<Navigate to="/" />)}
             </div>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                </Modal.Header>
+                <Modal.Body><CrearViaje /></Modal.Body>
+            </Modal>
         </>
     );
     
