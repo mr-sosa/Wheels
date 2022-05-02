@@ -11,8 +11,6 @@ import { MenuBtn } from "../../components/MenuBtn/MenuBtn";
 import driverNoActive from './../../data/driverNoActive.png';
 import passengerActive from './../../data/passengerActive.png';
 
-export const TripIdContext = createContext();
-
 export const Home = () => {
     const [showResults, setShowResults] = useState(false)
     const { setUser, user } = useContext(UserContext);
