@@ -62,7 +62,6 @@ export const Detail = (props) => {
                         <h3 className="Detail-Route-Input">Av. Dorado - Av. Las Americas - Av. Esperanza</h3>
                     </div>
                     <div className="col"></div>
-                    <div className="col"></div>
                 </div>
                 <div className="row">
                     <div className="col">

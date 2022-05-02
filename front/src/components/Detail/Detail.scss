@@ -1,5 +1,5 @@
 .Detail{
-    padding: 50px;
+    padding: 10px;
     &-Destiny{
         &-Label{
             font-family: 'Lato';
@@ -21,7 +21,7 @@
             line-height: 39px;
             /* identical to box height, or 194% */
 
-            text-align: center;
+            text-align: justify;
 
             color: #000000;
         }   
@@ -48,7 +48,7 @@
             line-height: 39px;
             /* identical to box height, or 194% */
 
-            text-align: center;
+            text-align: justify;
 
             color: #000000;
         }     
@@ -75,7 +75,7 @@
             line-height: 26px;
             /* identical to box height, or 162% */
 
-            text-align: justify;
+            text-align: center;
             color: #42629E;
         }
     }
@@ -94,6 +94,7 @@
             color: #000000;
         }
         &-Check{
+            padding-right: auto;
             height: auto;
         }
     }
