@@ -25,5 +25,8 @@ https://wheelsuniandes-project.herokuapp.com/
 
 https://youtu.be/37pe-a_cOmc
 
-Para desplegar la aplicación:
+## Para desplegar la aplicación:
 Primero se deben actualizar las dependencias de las librerias con npm install tanto en la carpeta raíz como en la carpta front. Posteriormente ejecutar npm run build en la carpeta front y por último en la carpeta raíz npm run start. Con esto la aplicación estará totalmente desplegada en el http://localhost:3001/ 
+
+## URL video demo
+https://youtu.be/GFCHY5FEaYo
