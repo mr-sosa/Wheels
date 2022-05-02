@@ -46,7 +46,7 @@ export const LogIn = () => {
         };
     };
 
-    const userLocalStorage = localStorage.getItem('username')
+    const userLocalStorage = localStorage.getItem('username');
 
     if(userLocalStorage != null){
         setUser({
@@ -55,7 +55,7 @@ export const LogIn = () => {
         });
         return(<Navigate to="/home" />);
     }
-    
+
     if(isLoggedIn){
         return(<Navigate to="/home" />);
     }

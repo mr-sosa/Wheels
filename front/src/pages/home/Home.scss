@@ -78,3 +78,13 @@
 .Map{
     pointer-events: all !important;
 }
+
+#logout-container {
+    position: absolute;
+    z-index: 3;
+    top: 1vh;
+    left: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
