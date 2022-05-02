@@ -88,3 +88,24 @@
     flex-direction: column;
     align-items: flex-start;
 }
+
+.btn{
+    &-warning{
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 23px;
+        /* identical to box height, or 142% */
+
+        text-align: center;
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+
+        color: #1D2D44;
+
+        background: #FFC868;
+        box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.3);
+        border-radius: 13px;
+    }
+}
