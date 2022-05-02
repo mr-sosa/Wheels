@@ -75,8 +75,7 @@
             line-height: 26px;
             /* identical to box height, or 162% */
 
-            text-align: center;
-
+            text-align: justify;
             color: #42629E;
         }
     }
@@ -93,6 +92,9 @@
             text-align: center;
 
             color: #000000;
+        }
+        &-Check{
+            height: auto;
         }
     }
 

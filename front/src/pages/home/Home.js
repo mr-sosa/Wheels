@@ -6,17 +6,18 @@ import './Home.scss';
 import { Map } from '../../components/Map/Map';
 import { Search } from './../../components/Search/Search';
 import { Detail } from "../../components/Detail/Detail";
-import { Click } from "../../components/Post/Post";
+import { Sidebar } from "../../components/Sidebar/Sidebar";
+import { MenuBtn } from "../../components/MenuBtn/MenuBtn";
 import driverNoActive from './../../data/driverNoActive.png';
 import passengerActive from './../../data/passengerActive.png';
+
+export const TripIdContext = createContext();
 
 export const Home = () => {
     const [showResults, setShowResults] = useState(false)
     const { setUser, user } = useContext(UserContext);
-    const id = null
-    const onClick = () => {
-        setShowResults(true);
-    }
+
+    const onClick = () => setShowResults(true)
     
     const onClick2 = () => setShowResults(false)
 
@@ -30,6 +31,18 @@ export const Home = () => {
             });
         }
     }, []);
+
+
+    /*function openNav() {
+        document.getElementsByClassName("2").style.width = "250px";
+        document.getElementsByTagName("Home").style.marginLeft = "0px";
+    }
+      
+      /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    /*function closeNav() {
+        document.getElementsByClassName("2").style.width = "0";
+        document.getElementsByTagName("Home").style.marginLeft = "0";
+    }*/
 
     return(
         <>

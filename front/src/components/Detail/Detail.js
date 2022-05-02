@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom'
+import React from 'react';
 import './Detail.scss';
 import passengers from './../../data/user.png';
 
 export const Detail = (props) => {
-    const { id } = props;
+    /*const { id } = props;
     const url = "/v1/trips/"+id;
     const [trip, setTrip] = useState([]);
     
@@ -28,7 +27,7 @@ export const Detail = (props) => {
           };
         });
         setTrip(trip);
-    };
+    };*/
 
     return (
         <div className="Detail">
@@ -38,7 +37,7 @@ export const Detail = (props) => {
                         <h3 className="Detail-Destiny-Label">Destino:</h3>
                     </div>
                     <div className="col">
-                        <h3 className="Detail-Destiny-Input">casa</h3>
+                        <h3 className="Detail-Destiny-Input">C.C. Gran Estación</h3>
                     </div>
                     <div className="col"></div>
                 </div>
@@ -47,7 +46,7 @@ export const Detail = (props) => {
                         <h3 className="Detail-Hour-Label">Hora de salida:</h3>
                     </div>
                     <div className="col">
-                        <h3 className="Detail-Hour-Input">33</h3>
+                        <h3 className="Detail-Hour-Input">06:00 am</h3>
                     </div>
                     <div className="col"></div>
                 </div>
@@ -60,21 +59,23 @@ export const Detail = (props) => {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <h3 className="Detail-Route-Input">dasdasd</h3>
+                        <h3 className="Detail-Route-Input">Av. Dorado - Av. Las Americas - Av. Esperanza</h3>
                     </div>
+                    <div className="col"></div>
+                    <div className="col"></div>
                 </div>
                 <div className="row">
                     <div className="col">
                         <h3 className="Detail-Flex-Label">Flexible:</h3>
                     </div>
                     <div className="col">
-                        <input className="Detail-Flex-Check" type="checkbox" value="Bike"></input>
+                        <input className="Detail-Flex-Check" type="checkbox" value="Bike" disabled="true"></input>
                     </div>
                     <div className="col"></div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        <img src={passengers} className="Detail-Passengers-Img" />
+                        <img src={passengers} alt="icon" className="Detail-Passengers-Img" />
                     </div>
                     <div className="col">
                         <p className="Detail-Passengers-Input">2 cupos disponibles</p>
@@ -89,7 +90,7 @@ export const Detail = (props) => {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <p className="Detail-Exit" onClick={props.onClick}>cancelar</p>
+                        <p className="Detail-Exit" onClick={props.onClick}>volver</p>
                     </div>
                 </div>
             </div>  
