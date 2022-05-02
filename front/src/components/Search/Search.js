@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import useCollapse from 'react-collapsed';
 import { Post } from '../Post/Post';
 import './Search.scss';
@@ -54,11 +54,10 @@ function LocationsCollapsible() {
 }
 
 export const Search = (props) => {
-
     const [isExpanded, setExpanded] = useState(false)
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
     
-    const url = "/v1/trips";
+    const url = "/v1/trips/";
     const [trips, setTrips] = useState([]);
 
     useEffect(() => {
@@ -69,7 +68,7 @@ export const Search = (props) => {
       const resp = await fetch(url);
       const data = await resp.json();
   
-      const trips = data?.results.map((resp) => {
+      const trips = data?.trips.map((resp) => {
         return {
             _id : resp._id,
             originAddress : resp.originAddress,
@@ -112,29 +111,15 @@ export const Search = (props) => {
                             <div className="col"></div>
                         </div>
                         <div className="row">
-                            <Post onClick={props.onClick}
-                                    key={1}
-                                    _id={"zzzzzzzz"}
-                                    hour={6}
-                                    route={"elm.route"}
-                                    cost={"elm.cost"}
-                            ></Post>
-                            <Post onClick={props.onClick}
-                                    key={1}
-                                    _id={"zzzzzzzz"}
-                                    hour={6}
-                                    route={"elm.route"}
-                                    cost={"elm.cost"}
-                            ></Post>
                             {trips.map((elm, index) => (
-                            <Post onClick={props.onClick(elm._id)}
-                                key={index}
-                                _id={elm._id}
-                                hour={elm.hour}
-                                route={elm.route}
-                                cost={elm.cost}
-                            ></Post>
-                        ))}
+                                <Post onClick={() => {props.onClick();}}
+                                    key={index}
+                                    _id={elm._id}
+                                    hour={elm.hour}
+                                    route={elm.route}
+                                    cost={elm.cost}
+                                ></Post>
+                            ))}
                         </div>                      
                     </div>
                 </div>

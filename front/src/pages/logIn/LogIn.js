@@ -38,11 +38,23 @@ export const LogIn = () => {
             name: response.data.username,
             token: response.token
           });
+          localStorage.setItem('username', response.data.username);
+          localStorage.setItem('token', response.token);
           setIsLoggedIn(true);
         }else if(response && !response.success){
             handleShow();
         };
     };
+
+    const userLocalStorage = localStorage.getItem('username');
+
+    if(userLocalStorage != null){
+        setUser({
+            name: userLocalStorage,
+            token: localStorage.getItem('token')
+        });
+        return(<Navigate to="/home" />);
+    }
 
     if(isLoggedIn){
         return(<Navigate to="/home" />);

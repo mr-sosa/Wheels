@@ -9,6 +9,7 @@ import { CrearViaje } from './pages/crearViaje/CrearViaje';
 import { NoPage } from './pages/noPage/NoPage';
 import { LogIn } from './pages/logIn/LogIn';
 import { SignUp } from './pages/signup/SignUp';
+import { Historial } from './pages/historial/Historial'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path='/' element={<LandingPage/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path='*' element={<NoPage/>}/>
+            <Route path='/historial' element={<Historial/>}/>
             <Route path='/crearViaje' element={<CrearViaje/>}/>
             <Route path='/login' element={<LogIn/>}/>
             <Route path='/signup' element={<SignUp/>}/>
