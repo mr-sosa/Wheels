@@ -82,7 +82,6 @@ export const Home = () => {
                         <Popup trigger={<button className='Menu-Search'> Crear Viaje</button>} position="top center">
                             <CrearViaje />
                         </Popup>
-                        <button className='Menu-Search' onClick={() =><Navigate to="/crearViaje" />}>Crear Viaje</button>
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
                                 <img src={passengerNoActive} className='Menu-Buttons-Style-Img' />
