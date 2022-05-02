@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-//import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import { UserContext } from './../../context/UserContext';
 import { useForm } from './../../hooks/useForm';
 import './LogIn.scss';
@@ -93,7 +93,7 @@ export const LogIn = () => {
                         <Link to={'/signup'}>Sign up</Link>
                     </div>
                 </form>
-                {/* <Modal show={show} onHide={handleClose}>
+                <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Error</Modal.Title>
                     </Modal.Header>
@@ -103,7 +103,7 @@ export const LogIn = () => {
                             Close
                         </Button>             
                     </Modal.Footer>
-                </Modal> */}
+                </Modal>
             </>)}
         </div>
     </>);

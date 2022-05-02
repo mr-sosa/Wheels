@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { UserContext } from './../../context/UserContext';
 import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
 import { Map } from '../../components/Map/Map';
 
-const url = 'v1/users/mv-garcia/trips';
-
 export const CrearViaje = () => {
+
+  const { user } = useContext(UserContext);
+  console.log(user)
+  //const url = 'v1/users/'+user.username+'/trips';
+  const url = 'v1/users/'+'}mv-garcia'+'/trips';
 
   const [formValues, handleInputChange] = useForm({
   });
@@ -209,10 +213,10 @@ export const CrearViaje = () => {
         </div>
 
         <button type='submit' className='btn btn-primary'>
-          Ingresar
+          Crear
         </button>
       </form>
-      <Map></Map>
+      {/* <Map></Map> */}
     </div>
   );
 };
