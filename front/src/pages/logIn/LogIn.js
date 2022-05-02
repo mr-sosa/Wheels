@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-//import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import { UserContext } from './../../context/UserContext';
 import { useForm } from './../../hooks/useForm';
 import './LogIn.scss';
@@ -38,12 +38,24 @@ export const LogIn = () => {
             name: response.data.username,
             token: response.token
           });
+          localStorage.setItem('username', response.data.username);
+          localStorage.setItem('token', response.token);
           setIsLoggedIn(true);
         }else if(response && !response.success){
             handleShow();
         };
     };
 
+    const userLocalStorage = localStorage.getItem('username')
+
+    if(userLocalStorage != null){
+        setUser({
+            name: userLocalStorage,
+            token: localStorage.getItem('token')
+        });
+        return(<Navigate to="/home" />);
+    }
+    
     if(isLoggedIn){
         return(<Navigate to="/home" />);
     }
@@ -93,7 +105,7 @@ export const LogIn = () => {
                         <Link to={'/signup'}>Sign up</Link>
                     </div>
                 </form>
-                {/* <Modal show={show} onHide={handleClose}>
+                <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Error</Modal.Title>
                     </Modal.Header>
@@ -103,7 +115,7 @@ export const LogIn = () => {
                             Close
                         </Button>             
                     </Modal.Footer>
-                </Modal> */}
+                </Modal>
             </>)}
         </div>
     </>);
