@@ -1,5 +1,6 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import useCollapse from 'react-collapsed';
+import { TripContext } from '../../context/TripContext';
 import { Post } from '../Post/Post';
 import './Search.scss';
 
@@ -7,7 +8,7 @@ import './Search.scss';
 function LocationsCollapsible() {
     const [isExpanded, setExpanded] = useState(false)
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
-
+    
     return (
         <div className="Locations">
             <div className="Locations-Header" {...getToggleProps({ 
@@ -54,6 +55,8 @@ function LocationsCollapsible() {
 }
 
 export const Search = (props) => {
+    //const [ detailTrip, setDetailTrip ] = useContext(TripContext);
+
     const [isExpanded, setExpanded] = useState(false)
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
     
@@ -67,7 +70,7 @@ export const Search = (props) => {
     const fetchTrips = async () => {
       const resp = await fetch(url);
       const data = await resp.json();
-  
+      console.log(resp);
       const trips = data?.trips.map((resp) => {
         return {
             _id : resp._id,
@@ -85,6 +88,12 @@ export const Search = (props) => {
       });
       setTrips(trips);
     };
+
+    function onClick(pId) {
+        props.onClick();
+        //setDetailTrip(pId);
+        //console.log(detailTrip);
+    }
 
     return (
         <div className="Search">
@@ -112,7 +121,7 @@ export const Search = (props) => {
                         </div>
                         <div className="row">
                             {trips.map((elm, index) => (
-                                <Post onClick={() => {props.onClick();}}
+                                <Post onClick={() => {onClick(elm);}}
                                     key={index}
                                     _id={elm._id}
                                     hour={elm.hour}
