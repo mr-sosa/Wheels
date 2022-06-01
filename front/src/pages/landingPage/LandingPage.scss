@@ -29,6 +29,7 @@ body{
         margin-top: 0;
         margin-bottom: 0;
         color: #ffffff;
+        align-self: center;
     }
 
     &-buttons{
@@ -70,4 +71,16 @@ body{
             color: #ffffff !important;
         }
     }
-}
+
+    &-2{
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        
+        .Loading{
+            height: 30vh;
+            width: auto;
+        }
+    }
+    }

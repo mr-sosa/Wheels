@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import useCollapse from "react-collapsed";
 import { TripContext } from "../../context/TripContext";
 import { Post } from "../Post/Post";
@@ -6,6 +6,7 @@ import "./Search.scss";
 import { useForm } from "../../hooks/useForm";
 
 export const Search = (props) => {
+
   const [detailTrip, setDetailTrip] = useContext(TripContext);
 
   const [isExpanded, setExpanded] = useState(false);
@@ -58,6 +59,14 @@ export const Search = (props) => {
   const [formValues, handleInputChange] = useForm({});
 
   const { localidadO, localidadD } = formValues;
+
+  const divStyle={
+    overflowY: 'scroll',
+    border:'0px',
+    float: 'left',
+    height:'300px',
+    position:'relative'
+  };
 
   return (
     <div className="Search">
@@ -128,7 +137,7 @@ export const Search = (props) => {
               </div>
               <div className="col"></div>
             </div>
-            <div className="row">
+            <div style={divStyle} className="row">
               {trips.map((elm, index) => (
                 <Post
                   onClick={() => {
@@ -147,3 +156,4 @@ export const Search = (props) => {
     </div>
   );
 };
+

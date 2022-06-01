@@ -1,19 +1,20 @@
-
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from './../../context/UserContext';
 import { Navigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
-import './Home.scss';
+import "./Home.scss";
 
-import { Map } from '../../components/Map/Map';
-import { Search } from './../../components/Search/Search';
+import { Map } from "../../components/Map/Map";
+import { Search } from "./../../components/Search/Search";
 import { Detail } from "../../components/Detail/Detail";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { MenuBtn } from "../../components/MenuBtn/MenuBtn";
-import driverNoActive from './../../data/driverNoActive.png';
-import passengerActive from './../../data/passengerActive.png';
-import driverActive from './../../data/driverActive.png';
-import passengerNoActive from './../../data/passengerNoActive.png';
+import driverNoActive from "./../../data/driverNoActive.png";
+import passengerActive from "./../../data/passengerActive.png";
+import driverActive from "./../../data/driverActive.png";
+import passengerNoActive from "./../../data/passengerNoActive.png";
+import { Footer } from "../../components/Footer/Footer";
 
 import { CrearViaje } from "../crearViaje/CrearViaje";
 import 'reactjs-popup/dist/index.css';
@@ -21,51 +22,55 @@ import { Button, Collapse, Modal } from "react-bootstrap";
 import { TripContext } from "../../context/TripContext";
 
 export const Home = () => {
-    const [showResults, setShowResults] = useState(false)
 
-    const onClick = (event) => {
-        setShowResults(true);
-    }
-    const { setUser, user } = useContext(UserContext);
+  const [showResults, setShowResults] = useState(false);
+  var id = "";
+    const {user, isAuthenticated, logout} = useAuth0();
 
-    const [pMode, changeMode] = useState(true)
+  const onClick = (event) => {
+    setShowResults(true);
+  };
+
+  //const { setUser, user } = useContext(UserContext);
+
+  const [pMode, changeMode] = useState(true);
     
 
-    const onClick2 = () => setShowResults(false)
 
-    useEffect(() => {
-        const userLocalStorage = localStorage.getItem('username');
+  const onClick2 = () => setShowResults(false);
 
+  useEffect(() => {
+    const userLocalStorage = localStorage.getItem("username");
         if(userLocalStorage != null){
-            setUser({
-                name: userLocalStorage,
-                token: localStorage.getItem('token')
-            });
+            //setUser({
+            //    name: userLocalStorage,
+            //    token: localStorage.getItem('token')
+            //});
         }
-    }, [setUser]);
+    // }, [setUser]
+    });
 
-    const [detailTrip, setDetailTrip] = useState("");
-    /*function callbackTripDetail(tripId){
+  const [detailTrip, setDetailTrip] = useState("");
+  /*function callbackTripDetail(tripId){
         id = tripId
     };*/
 
-    /*function openNav() {
+  /*function openNav() {
         document.getElementsByClassName("2").style.width = "250px";
         document.getElementsByTagName("Home").style.marginLeft = "0px";
     }
       
       /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-    /*function closeNav() {
+  /*function closeNav() {
         document.getElementsByClassName("2").style.width = "0";
         document.getElementsByTagName("Home").style.marginLeft = "0";
     }*/
 
     const [open, setOpen] = useState(false);
-
     return(
         <>
             <div className="Home">
-                {user && (<>
+                {user && isAuthenticated &&(<>
                     <div className="Back" id="Back"></div>
                     {pMode?
                     <div className="Menu">
@@ -109,17 +114,17 @@ export const Home = () => {
                 }
                 <Map></Map>
                 <div id='logout-container'>
-                        <button className='btn btn-warning' onClick={() => {
-                                                                    localStorage.removeItem('username');
-                                                                    localStorage.removeItem('token');
-                                                                    setUser(null);}}>
+                        <button className='btn btn-warning' onClick={() => {logout({returnTo: 'http://localhost:3001/'});
+                                                                    //localStorage.removeItem('username');
+                                                                    //localStorage.removeItem('token');
+                                                                    //setUser(null);
+                                                                }}>
                             Logout
                         </button>
                     </div></>
                 )}
-                {!user && (<Navigate to="/" />)}
+                {!user && !isAuthenticated && (<Navigate to="/" />)}
             </div>
-        </>
-    );
-    
+          </>
+  );
 };
