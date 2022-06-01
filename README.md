@@ -13,7 +13,7 @@ Los usuarios pueden ser de tipo conductor o pasajero:
 Para poder utilizar la aplicación se debe iniciar sesión primero, si no se conoce el userName y constraseña entonces se debe registrar primero.
 
 ## URL live demo
-https://wheelsuniandes-project.herokuapp.com/
+https://app-wheels-uniandes.herokuapp.com/
 
 ## Instrucciones de uso
 
@@ -24,3 +24,9 @@ https://wheelsuniandes-project.herokuapp.com/
 ## URL video funcionalidad
 
 https://youtu.be/37pe-a_cOmc
+
+## Para desplegar la aplicación:
+Primero se deben actualizar las dependencias de las librerias con npm install tanto en la carpeta raíz como en la carpta front. Posteriormente ejecutar npm run build en la carpeta front y por último en la carpeta raíz npm run start. Con esto la aplicación estará totalmente desplegada en el http://localhost:3001/ 
+
+## URL video demo
+https://youtu.be/GFCHY5FEaYo

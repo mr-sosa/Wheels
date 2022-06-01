@@ -1,5 +1,31 @@
 .Detail{
-    padding: 50px;
+    padding: 10px;
+    &-Origin{
+        &-Label{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: justify;
+
+            color: #000000;
+        }   
+    }
     &-Destiny{
         &-Label{
             font-family: 'Lato';
@@ -21,7 +47,7 @@
             line-height: 39px;
             /* identical to box height, or 194% */
 
-            text-align: center;
+            text-align: justify;
 
             color: #000000;
         }   
@@ -48,7 +74,7 @@
             line-height: 39px;
             /* identical to box height, or 194% */
 
-            text-align: center;
+            text-align: justify;
 
             color: #000000;
         }     
@@ -76,7 +102,6 @@
             /* identical to box height, or 162% */
 
             text-align: center;
-
             color: #42629E;
         }
     }
@@ -94,10 +119,48 @@
 
             color: #000000;
         }
+        &-Check{
+            padding-right: auto;
+            height: auto;
+        }
+    }
+
+    &-Passengers{
+        &-Img{
+            width: 30px;
+            height: 30px;
+        }
+
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height, or 162% */
+
+            text-align: center;
+
+            color: #42629E;
+        }
+    }
+
+    &-Cost{
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
     }
 
     &-Button{
-
         font-family: 'Lato';
         font-style: normal;
         font-weight: 800;
@@ -113,6 +176,7 @@
 
         width: auto;
         height: 50px;
+        padding-top: 10px;
 
         background: #FFC868;
         box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.3);

@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { UserContext } from './../../context/UserContext';
 import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
 import { Map } from '../../components/Map/Map';
-import { UserContext } from '../../context/UserContext';
 import { Navigate } from 'react-router';
 
 export const CrearViaje = () => {
 
   const { user } = useContext(UserContext);
   console.log(user)
-
-  const url = 'v1/users/'+user.username+'/trips';
+  //const url = 'v1/users/'+user.username+'/trips';
+  const url = 'v1/users/'+user+'/trips';
 
   const [formValues, handleInputChange] = useForm({
   });
@@ -50,8 +50,8 @@ export const CrearViaje = () => {
   };
 
   return (
-    <div className='login-container'>
-      <form className='login-form' onSubmit={handleSubmit}>
+    <div className='crearViaje-container'>
+      <form className='crearViaje-form' onSubmit={handleSubmit}>
         <h2>Crear Viaje</h2>
         <hr />
         <div className='form-group'>
@@ -219,7 +219,7 @@ export const CrearViaje = () => {
           Crear
         </button>
       </form>
-      <Map></Map>
+      {/* <Map></Map> */}
     </div>
   );
 };

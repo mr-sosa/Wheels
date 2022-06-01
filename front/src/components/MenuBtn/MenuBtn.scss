@@ -1,0 +1,17 @@
+.MenuBtn{
+    width: 60px;
+    height: 60px;
+
+    background: #FFFFFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 100px;
+
+    align-content: center;
+    padding-top: auto;
+    &-Open{
+        background-color: transparent;
+        width: 60px;
+        height: 60px;
+        border: none;
+    }
+}

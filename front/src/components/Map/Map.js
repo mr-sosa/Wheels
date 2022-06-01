@@ -1,7 +1,10 @@
-import React, { Component } from "react";
-import { useJsApiLoader, GoogleMap } from '@react-google-maps/api';
+import React, { useState, Component } from "react";
+import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 import './Map.scss';
 import tokens from '../../tokens.json'
+import GPS_img from './../../data/gps.png';
+import GPS_Marker from './../../data/pin.png';
+
 const GOOGLE_MAPS_TOKEN = tokens.GOOGLE_MAPS_TOKEN;
 
 const bogota = { lat: 4.60971, lng: -74.08175 };
@@ -9,6 +12,7 @@ const bogota = { lat: 4.60971, lng: -74.08175 };
 export const Map = () => {
     // Geolocation Permissions
     let userPosition = bogota;
+    const [map, setMap] = useState(/** @type google.maps.Map*/ (null));
 
     function success(position) {
       userPosition.lat = position.coords.latitude;
@@ -52,8 +56,15 @@ export const Map = () => {
                             streetViewControl: false,
                             mapTypeControl: false,
                             fullscreenControl: false,
-                        }}>
+                        }}
+                        onLoad={(map) => setMap(map)}>
+                    <Marker className='Marker' position={userPosition} />
                 </GoogleMap>
+                <button className="Center-GPS" 
+                        aria-label="GPS position" 
+                        onClick={() => map.panTo(userPosition)}>
+                    <img src={GPS_img} alt='GPS icon'/>
+                </button>
             </div>
         </>
     );
