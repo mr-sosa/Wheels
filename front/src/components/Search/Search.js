@@ -143,12 +143,7 @@ export const Search = (props) => {
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-      );
-}
-=======
       </div>
     </div>
   );
 };
->>>>>>> c9b3a621c3da01ad92f1377d0217c77c5bb09049

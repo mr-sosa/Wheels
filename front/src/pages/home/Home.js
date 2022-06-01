@@ -16,10 +16,8 @@ import driverActive from './../../data/driverActive.png';
 import passengerNoActive from './../../data/passengerNoActive.png';
 
 import { CrearViaje } from "../crearViaje/CrearViaje";
-
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { Button, Modal } from "react-bootstrap";
+import { Button, Collapse, Modal } from "react-bootstrap";
 import { TripContext } from "../../context/TripContext";
 
 export const Home = () => {
@@ -28,12 +26,6 @@ export const Home = () => {
     const onClick = (event) => {
         setShowResults(true);
     }
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     const { setUser, user } = useContext(UserContext);
 
     const [pMode, changeMode] = useState(true)
@@ -68,6 +60,8 @@ export const Home = () => {
         document.getElementsByTagName("Home").style.marginLeft = "0";
     }*/
 
+    const [open, setOpen] = useState(false);
+
     return(
         <>
             <div className="Home">
@@ -91,12 +85,20 @@ export const Home = () => {
                     </div>
                  :
                     <div className="Menu">
-                        
-                        <button className='Menu-Search' onClick={() =>handleShow()}> Crear Viaje</button>
+                        <Button className='Menu-Search'
+                            onClick={() => setOpen(!open)}
+                            aria-controls="example-collapse-text"
+                            aria-expanded={open}
+                        >
+                            Crear Viaje
+                        </Button>
+                        <Collapse in={open}>
+                            <div className='Menu-Search'><CrearViaje></CrearViaje></div>
+                        </Collapse>
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
                                 <img alt='PasajeroIcon' src={passengerNoActive} className='Menu-Buttons-Style-Img' />
-                                <p onClick={() =>changeMode(true)} className='Menu-Buttons-Style-Text'>Pasajero</p>
+                                <p onClick={() =>{changeMode(true)}} className='Menu-Buttons-Style-Text'>Pasajero</p>
                             </div>
                             <div className='Menu-Buttons-Style'>
                                 <img alt='ConductorIcon' src={driverActive} className='Menu-Buttons-Style-Img' />
@@ -117,12 +119,6 @@ export const Home = () => {
                 )}
                 {!user && (<Navigate to="/" />)}
             </div>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                </Modal.Header>
-                <Modal.Body><CrearViaje /></Modal.Body>
-            </Modal>
         </>
     );
     

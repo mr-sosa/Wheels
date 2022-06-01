@@ -59,8 +59,6 @@ export const CrearViaje = () => {
   return (
     <div className='crearViaje-container'>
       <form className='crearViaje-form' onSubmit={handleSubmit}>
-        <h2>Crear Viaje</h2>
-        <hr />
         <div className='form-group'>
           <label htmlFor='localidadO' className='form-label'>
             Localidad Origen:
