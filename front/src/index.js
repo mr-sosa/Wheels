@@ -5,12 +5,22 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from './hooks/ThemeProvider';
+import { Auth0Provider } from '@auth0/auth0-react';
+import tokens from './tokens.json';
+
+const domain = tokens.REACT_APP_AUTH0_DOMAIN;
+const clientId = tokens.REACT_APP_AUTH0_CLIENTID;
+const audience = tokens.REACT_APP_AUTH0_AUDIENCE;
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Auth0Provider
+    domain={domain}
+    clientId={clientId}
+    audience={audience}
+    redirectUri={window.location.origin}>
     {/* <ThemeProvider /> */}
-    <App/>
-  </React.StrictMode>,
+    <App />
+  </Auth0Provider>,
   document.getElementById('root')
 );
 

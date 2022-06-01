@@ -71,4 +71,16 @@ body{
             color: #ffffff !important;
         }
     }
-}
+
+    &-2{
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        
+        .Loading{
+            height: 30vh;
+            width: auto;
+        }
+    }
+    }

@@ -4,6 +4,7 @@ import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
 import { Map } from '../../components/Map/Map';
+import { Navigate } from 'react-router';
 
 export const CrearViaje = () => {
 
@@ -44,6 +45,8 @@ export const CrearViaje = () => {
       } catch (err) {
         console.log(err);
       }
+
+      return(<Navigate to="/home" />);
   };
 
   return (

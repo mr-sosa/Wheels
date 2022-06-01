@@ -28,6 +28,36 @@
         }
     }
 }
+.Locations {
+    background: #DDE0E3;
+    border-radius: 13px;
+    margin-bottom: 20px;
+    &-Header{
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 40px;
+        font-size: 16px;
+        line-height: 26px;
+        /* identical to box height, or 162% */
+
+        text-align: center;
+
+        color: #42629E;
+
+        width: 500px;
+        height: auto;
+
+        
+        &-Arrow{
+            transform: rotate(180deg);
+        }
+    }
+    &-Content{
+        border-radius: 13px;
+        background: #DDE0E3;
+    }
+}
+
 .form {
     &-control {
         border-radius: 13px;
