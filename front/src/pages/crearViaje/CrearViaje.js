@@ -4,6 +4,10 @@ import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
 import { Map } from '../../components/Map/Map';
+<<<<<<< HEAD
+import { Button, Modal } from 'react-bootstrap';
+=======
+>>>>>>> bf4037b38bdda2e2666165ed95f2979abc0d105d
 import { Navigate } from 'react-router';
 
 export const CrearViaje = () => {
@@ -17,6 +21,12 @@ export const CrearViaje = () => {
   });
 
   const [checked, setChecked] = useState(false);
+
+  const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
 
 
   const { flexible, localidadO, localidadD, direccionO, direccionD, cupos, precio, ruta,fecha, hora } = formValues;
@@ -52,8 +62,6 @@ export const CrearViaje = () => {
   return (
     <div className='crearViaje-container'>
       <form className='crearViaje-form' onSubmit={handleSubmit}>
-        <h2>Crear Viaje</h2>
-        <hr />
         <div className='form-group'>
           <label htmlFor='localidadO' className='form-label'>
             Localidad Origen:
@@ -215,11 +223,23 @@ export const CrearViaje = () => {
           />
         </div>
 
-        <button type='submit' className='btn btn-primary'>
+        <button type='submit' className='btn btn-primary' onClick={() =>handleShow()}>
           Crear
         </button>
       </form>
+      <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Viaje creado</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Se creo el viaje exitosamente</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="dark" onClick={handleClose}>
+                            Close
+                        </Button>             
+                    </Modal.Footer>
+                </Modal>
       {/* <Map></Map> */}
     </div>
+    
   );
 };
