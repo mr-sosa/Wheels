@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
 import { Map } from '../../components/Map/Map';
-
-const url = 'v1/users/mv-garcia/trips';
+import { UserContext } from '../../context/UserContext';
+import { Navigate } from 'react-router';
 
 export const CrearViaje = () => {
+
+  const { user } = useContext(UserContext);
+  console.log(user)
+
+  const url = 'v1/users/'+user.username+'/trips';
 
   const [formValues, handleInputChange] = useForm({
   });
@@ -40,6 +45,8 @@ export const CrearViaje = () => {
       } catch (err) {
         console.log(err);
       }
+
+      return(<Navigate to="/home" />);
   };
 
   return (
@@ -209,7 +216,7 @@ export const CrearViaje = () => {
         </div>
 
         <button type='submit' className='btn btn-primary'>
-          Ingresar
+          Crear
         </button>
       </form>
       <Map></Map>
