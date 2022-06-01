@@ -20,7 +20,6 @@ function App() {
   return (
     <>
       <IntlProvider locale={language} messages={messages[language]}>
-
         <UserContext.Provider value={{ user, setUser }}>
           <Router>
             <Routes>

@@ -5,6 +5,7 @@ import { UserContext } from './../../context/UserContext';
 import { useForm } from './../../hooks/useForm';
 import './LogIn.scss';
 import logo from './../../data/logo.png';
+import { Footer } from "../../components/Footer/Footer";
 
 export const LogIn = () => {
     const URL = '/v1/auth/login';
@@ -117,6 +118,8 @@ export const LogIn = () => {
                     </Modal.Footer>
                 </Modal>
             </>)}
+            
         </div>
+        <Footer></Footer>
     </>);
 };

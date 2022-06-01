@@ -1,3 +1,5 @@
+import "./Footer.scss";
+
 export const Footer = () => {
   return (
     <>
@@ -9,40 +11,104 @@ export const Footer = () => {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
       />
-      <div className="footer-basic">
+      <div className="foot">
         <footer>
-          <div className="social">
-            <a href="#">
-              <i className="icon ion-social-instagram"></i>
-            </a>
-            <a href="#">
-              <i className="icon ion-social-snapchat"></i>
-            </a>
-            <a href="#">
-              <i className="icon ion-social-twitter"></i>
-            </a>
-            <a href="#">
-              <i className="icon ion-social-facebook"></i>
-            </a>
+          <div className="container py-5">
+            <div className="row justify-content-center">
+              <div className="col-sm-4 col-md-3 item">
+                <h3 className="titulo">Services</h3>
+                <ul className="list-unstyled mb-0">
+                  <li>
+                    <a className="text" href="#">
+                      Web design
+                    </a>
+                  </li>
+                  <li>
+                    <a className="text" href="#">
+                      Development
+                    </a>
+                  </li>
+                  <li>
+                    <a className="text" href="#">
+                      Hosting
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-sm-4 col-md-3 item">
+                <h3 className="titulo">About</h3>
+                <ul className="list-unstyled mb-0">
+                  <li>
+                    <a className="text" href="#">
+                      Company
+                    </a>
+                  </li>
+                  <li>
+                    <a className="text" href="#">
+                      Team
+                    </a>
+                  </li>
+                  <li>
+                    <a className="text" href="#">
+                      Legacy
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-sm-4 col-md-3 item">
+                <h3 className="titulo">Careers</h3>
+                <ul className="list-unstyled mb-0">
+                  <li>
+                    <a className="text" href="#">
+                      Job openings
+                    </a>
+                  </li>
+                  <li>
+                    <a className="text" href="#">
+                      Employee success
+                    </a>
+                  </li>
+                  <li>
+                    <a className="text" href="#">
+                      Benefits
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-lg-3 item social">
+                <h3 className="titulo">Social</h3>
+                <div className="row">
+                  <div className="col">
+                    <a className="text" href="#">
+                      <i className="icon ion-social-facebook blackiconcolor"></i>
+                    </a>
+                  </div>
+                  <div className="col">
+                    <a className="text" href="#">
+                      <i className="icon ion-social-twitter"></i>
+                    </a>
+                  </div>
+                  <div className="col">
+                    <a className="text" href="#">
+                      <i className="icon ion-social-snapchat"></i>
+                    </a>
+                  </div>
+                  <div className="col">
+                    <a className="text" href="#">
+                      <i className="icon ion-social-instagram"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <ul className="list-inline">
-            <li className="list-inline-item">
-              <a href="#">Home</a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#">Services</a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#">About</a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#">Terms</a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-          </ul>
-          <p className="copyright">Wheels App © 2022</p>
+          <div className="foot-cpr py-4">
+            <div className="container text-center">
+              <p className="text mb-0 py-2">
+                Wheels App © 2022 All rights reserved.
+              </p>
+            </div>
+          </div>
         </footer>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.scss';
+import { Footer } from "../../components/Footer/Footer";
 
 export const LandingPage = () => {
   return (
@@ -11,7 +12,9 @@ export const LandingPage = () => {
           <Link to={'/login'}><button className='landing-buttons-style'>Log In</button></Link>
           <Link to={'/signup'}><button className='landing-buttons-style'>Sign Up</button></Link>
         </div>
+        
       </div>
+      <Footer></Footer>
     </>
   );
 };

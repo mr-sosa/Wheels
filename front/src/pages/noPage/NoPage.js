@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from './../../context/UserContext';
 import './NoPage.scss';
 import noFound from './../../data/404error.png';
+import { Footer } from "../../components/Footer/Footer";
 
 export const NoPage = () => {
     const { user } = useContext(UserContext);
@@ -20,7 +21,9 @@ export const NoPage = () => {
                     <Link to='/home'><button className="NoPage-2-button">Go Home</button></Link> : 
                     <Link to='/'><button className="NoPage-2-button">Go Home</button></Link>}
                 </div>
+                
             </div>
+            <Footer></Footer>
         </>
     );
 };
