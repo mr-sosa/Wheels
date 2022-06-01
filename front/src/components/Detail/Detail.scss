@@ -1,5 +1,31 @@
 .Detail{
     padding: 10px;
+    &-Origin{
+        &-Label{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: center;
+
+            color: #000000;
+        }
+        &-Input{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 39px;
+            /* identical to box height, or 194% */
+
+            text-align: justify;
+
+            color: #000000;
+        }   
+    }
     &-Destiny{
         &-Label{
             font-family: 'Lato';
