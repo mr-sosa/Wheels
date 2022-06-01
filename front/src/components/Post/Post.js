@@ -2,7 +2,7 @@ import React, { useImperativeHandle } from 'react';
 import './Post.scss';
 
 export const Post = (props) => {
-    const { _id, hour, route, cost } = props;
+    const { hour, route, cost } = props;
 
     return (
         <div className='Post' onClick={props.onClick}>

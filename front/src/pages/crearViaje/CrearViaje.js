@@ -5,13 +5,14 @@ import './CrearViaje.scss';
 
 import { Map } from '../../components/Map/Map';
 import { Button, Modal } from 'react-bootstrap';
+import { Navigate } from 'react-router';
 
 export const CrearViaje = () => {
 
   const { user } = useContext(UserContext);
   console.log(user)
   //const url = 'v1/users/'+user.username+'/trips';
-  const url = 'v1/users/'+'}mv-garcia'+'/trips';
+  const url = 'v1/users/'+user+'/trips';
 
   const [formValues, handleInputChange] = useForm({
   });
@@ -51,11 +52,13 @@ export const CrearViaje = () => {
       } catch (err) {
         console.log(err);
       }
+
+      return(<Navigate to="/home" />);
   };
 
   return (
-    <div className='login-container'>
-      <form className='login-form' onSubmit={handleSubmit}>
+    <div className='crearViaje-container'>
+      <form className='crearViaje-form' onSubmit={handleSubmit}>
         <h2>Crear Viaje</h2>
         <hr />
         <div className='form-group'>

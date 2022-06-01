@@ -14,19 +14,18 @@
         min-width: fit-content;
         margin-left: 15vw;
         margin-right: 15vw;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 39px;
+        /* identical to box height, or 162% */
 
-        &-Text{
-            font-family: 'Lato';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 39px;
-            /* identical to box height, or 162% */
+        text-align: center;
 
-            text-align: center;
+        color: #000000;
 
-            color: #000000;
-        }
+        text-decoration: none;
     }
 
     &-Buttons{
@@ -45,6 +44,7 @@
             }
 
             &-Text{
+                position: relative;
                 font-family: 'Lato';
                 font-style: normal;
                 font-weight: 700;
@@ -55,6 +55,9 @@
                 text-align: center;
     
                 color: #ffffff;
+            }
+            &-Text:hover{    
+                color: rgb(85, 136, 211);
             }
         }
     }

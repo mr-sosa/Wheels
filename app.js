@@ -34,8 +34,8 @@ app.get("*",(req,res)=>{
   res.sendFile(path.join(__dirname, 'front/build/index.html'));
 }); 
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
+// catch 404 and forward to error handlerr
+app.use(function (req, res, next) { 
     next(createError(404));
   });
   

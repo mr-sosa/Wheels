@@ -47,7 +47,7 @@ export const SignUp = () => {
         }else if(response && !response.success){
             handleShow();
         };
-    };
+    }; 
 
     const userLocalStorage = localStorage.getItem('username');
 

@@ -13,7 +13,7 @@ Los usuarios pueden ser de tipo conductor o pasajero:
 Para poder utilizar la aplicación se debe iniciar sesión primero, si no se conoce el userName y constraseña entonces se debe registrar primero.
 
 ## URL live demo
-https://wheelsuniandes-project.herokuapp.com/
+https://app-wheels-uniandes.herokuapp.com/
 
 ## Instrucciones de uso
 

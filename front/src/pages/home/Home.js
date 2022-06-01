@@ -20,11 +20,12 @@ import { CrearViaje } from "../crearViaje/CrearViaje";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { Button, Modal } from "react-bootstrap";
+import { TripContext } from "../../context/TripContext";
 
 export const Home = () => {
     const [showResults, setShowResults] = useState(false)
-    const id = null
-    const onClick = () => {
+
+    const onClick = (event) => {
         setShowResults(true);
     }
 
@@ -36,7 +37,6 @@ export const Home = () => {
     const { setUser, user } = useContext(UserContext);
 
     const [pMode, changeMode] = useState(true)
-    console.log(pMode)
     
 
     const onClick2 = () => setShowResults(false)
@@ -50,8 +50,12 @@ export const Home = () => {
                 token: localStorage.getItem('token')
             });
         }
-    }, []);
+    }, [setUser]);
 
+    const [detailTrip, setDetailTrip] = useState("");
+    /*function callbackTripDetail(tripId){
+        id = tripId
+    };*/
 
     /*function openNav() {
         document.getElementsByClassName("2").style.width = "250px";
@@ -71,15 +75,17 @@ export const Home = () => {
                     <div className="Back" id="Back"></div>
                     {pMode?
                     <div className="Menu">
-                        <button className='Menu-Search'>{ showResults ? <Detail onClick={onClick2}/> : <Search onClick={onClick}/> }</button>
+                        <TripContext.Provider value={[detailTrip, setDetailTrip]}>
+                            <button className='Menu-Search'>{ showResults ? <Detail onClick={onClick2}/> : <Search onClick={onClick}/> }</button>
+                        </TripContext.Provider>
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
-                                <img src={passengerActive} className='Menu-Buttons-Style-Img' />
-                                <a className='Menu-Buttons-Style-Text'>Pasajero</a>
+                                <img alt='PasajeroIcon' src={passengerActive} className='Menu-Buttons-Style-Img' />
+                                <p className='Menu-Buttons-Style-Text'>Pasajero</p>
                             </div>
                             <div className='Menu-Buttons-Style'>
-                                <img src={driverNoActive} className='Menu-Buttons-Style-Img' />
-                                <a onClick={() =>changeMode(false)} className='Menu-Buttons-Style-Text'>Conductor</a>
+                                <img alt='ConductorIcon' src={driverNoActive} className='Menu-Buttons-Style-Img' />
+                                <p onClick={() =>changeMode(false)} className='Menu-Buttons-Style-Text'>Conductor</p>
                             </div>
                         </div>
                     </div>
@@ -89,12 +95,12 @@ export const Home = () => {
                         <button className='Menu-Search' onClick={() =>handleShow()}> Crear Viaje</button>
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
-                                <img src={passengerNoActive} className='Menu-Buttons-Style-Img' />
-                                <a onClick={() =>changeMode(true)} className='Menu-Buttons-Style-Text'>Pasajero</a>
+                                <img alt='PasajeroIcon' src={passengerNoActive} className='Menu-Buttons-Style-Img' />
+                                <p onClick={() =>changeMode(true)} className='Menu-Buttons-Style-Text'>Pasajero</p>
                             </div>
                             <div className='Menu-Buttons-Style'>
-                                <img src={driverActive} className='Menu-Buttons-Style-Img' />
-                                <a  className='Menu-Buttons-Style-Text'>Conductor</a>
+                                <img alt='ConductorIcon' src={driverActive} className='Menu-Buttons-Style-Img' />
+                                <p className='Menu-Buttons-Style-Text'>Conductor</p>
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,10 @@
   "name": "courseproject",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://mr-sosa.github.io/202210_S2_E2",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "deploy": "gh-pages -d ./front/build"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -19,6 +21,10 @@
     "nodemon": "^2.0.15",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-intl": "^6.0.3",
     "sequelize": "^6.17.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
