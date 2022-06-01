@@ -40,6 +40,7 @@ export const Detail = (props) => {
                     <div className="col">
                         <h3 className="Detail-Origin-Input">{detailTrip.originAddress}</h3>
                     </div>
+                    <div className="col"></div>
                 </div>
                 <div className="row">
                     <div className="col">
@@ -48,6 +49,7 @@ export const Detail = (props) => {
                     <div className="col">
                         <h3 className="Detail-Destiny-Input">{detailTrip.destinationAddress}</h3>
                     </div>
+                    <div className="col"></div>
                 </div>
                 <div className="row">
                     <div className="col">
@@ -69,6 +71,7 @@ export const Detail = (props) => {
                     <div className="col">
                         <h3 className="Detail-Route-Input">{detailTrip.route}</h3>
                     </div>
+                    <div className="col"></div>
                     <div className="col"></div>
                 </div>
                 <div className="row">

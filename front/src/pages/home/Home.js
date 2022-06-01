@@ -23,7 +23,6 @@ import { TripContext } from "../../context/TripContext";
 
 export const Home = () => {
     const [showResults, setShowResults] = useState(false)
-    var id = ''
 
     const onClick = (event) => {
         setShowResults(true);
@@ -32,7 +31,6 @@ export const Home = () => {
     const { setUser, user } = useContext(UserContext);
 
     const [pMode, changeMode] = useState(true)
-    console.log(pMode)
     
 
     const onClick2 = () => setShowResults(false)

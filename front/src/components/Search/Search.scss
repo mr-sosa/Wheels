@@ -57,3 +57,42 @@
         background: #DDE0E3;
     }
 }
+
+.form {
+    &-control {
+        border-radius: 13px;
+        background-color: #DDE0E3;
+        
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 40px;
+        font-size: 16px;
+        line-height: 26px;
+        /* identical to box height, or 162% */
+
+        text-align: center;
+
+        color: #42629E;
+
+        width: 500px;
+        height: auto;
+    }
+    &-option {
+        border-radius: 13px;
+        background-color: #DDE0E3;
+        
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 40px;
+        font-size: 16px;
+        line-height: 26px;
+        /* identical to box height, or 162% */
+
+        text-align: center;
+
+        color: #42629E;
+
+        width: 500px;
+        height: auto;
+    }
+}
