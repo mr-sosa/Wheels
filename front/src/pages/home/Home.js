@@ -91,13 +91,13 @@ export const Home = () => {
                     </div>
                  :
                     <div className="Menu">
-                        <Button className='Menu-Search'
+                        <button className='Menu-Search'
                             onClick={() => setOpen(!open)}
                             aria-controls="example-collapse-text"
                             aria-expanded={open}
                         >
                             Crear viaje
-                        </Button>
+                        </button>
                         <Collapse in={open}>
                             <div className='Menu-Search'><CrearViaje></CrearViaje></div>
                         </Collapse>

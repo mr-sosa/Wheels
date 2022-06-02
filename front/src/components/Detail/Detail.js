@@ -38,7 +38,7 @@ export const Detail = (props) => {
                         <h3 className="Detail-Origin-Label">Salida:</h3>
                     </div>
                     <div className="col">
-                        <h3 className="Detail-Origin-Input">{detailTrip.originAddress}</h3>
+                        <h3 className="Detail-Origin-Input">{detailTrip.originLocality}-{detailTrip.originAddress}</h3>
                     </div>
                     <div className="col"></div>
                 </div>
