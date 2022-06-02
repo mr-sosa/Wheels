@@ -25,8 +25,8 @@ app.use(express.static(path.join(__dirname, 'front/build')));
 
 app.use('/v1', indexRouter);
 app.use('/v1/auth', authRouter);
-app.use('/v1/users', checkToken, usersRouter);
-app.use('/v1/trips', checkToken, tripsRouter);
+app.use('/v1/users',  usersRouter);
+app.use('/v1/trips',  tripsRouter);
 //app.use('/v1/trips', tripsRouter);
 
 app.get("*",(req,res)=>{
