@@ -12,6 +12,21 @@ const english = {
     profile: 'Profile',
     products: 'Products',
     contact: 'Contacts',
+    passenger: "Passenger",
+    driver: "Driver",
+    where: "Where to?",
+    create_trip: "Create trip",
+    select: "Select an option",
+    localityO: "Origin locality",
+    localityD: "Destination locality",
+    hour: "Hour",
+    addressO: "Origin address",
+    addressD: "Destination address",
+    price: "Price",
+    seats: "Seats",
+    route: "Route",
+    flexible: "flexible",
+    date: "Date"
   },
 };
 

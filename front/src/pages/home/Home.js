@@ -20,6 +20,7 @@ import { CrearViaje } from "../crearViaje/CrearViaje";
 import 'reactjs-popup/dist/index.css';
 import { Button, Collapse, Modal } from "react-bootstrap";
 import { TripContext } from "../../context/TripContext";
+import { FormattedMessage } from "react-intl";
 
 export const Home = () => {
 
@@ -79,11 +80,11 @@ export const Home = () => {
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
                                 <img alt='PasajeroIcon' src={passengerActive} className='Menu-Buttons-Style-Img' />
-                                <p className='Menu-Buttons-Style-Text'>Pasajero</p>
+                                <p className='Menu-Buttons-Style-Text'><FormattedMessage id="passenger"/></p>
                             </div>
                             <div className='Menu-Buttons-Style'>
                                 <img alt='ConductorIcon' src={driverNoActive} className='Menu-Buttons-Style-Img' />
-                                <p onClick={() =>changeMode(false)} className='Menu-Buttons-Style-Text'>Conductor</p>
+                                <p onClick={() =>changeMode(false)} className='Menu-Buttons-Style-Text'><FormattedMessage id="driver"/></p>
                             </div>
                         </div>
                         <Footer></Footer>
@@ -95,7 +96,7 @@ export const Home = () => {
                             aria-controls="example-collapse-text"
                             aria-expanded={open}
                         >
-                            Crear Viaje
+                            <FormattedMessage id="create_trip"/>
                         </Button>
                         <Collapse in={open}>
                             <div className='Menu-Search'><CrearViaje></CrearViaje></div>
@@ -103,11 +104,11 @@ export const Home = () => {
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
                                 <img alt='PasajeroIcon' src={passengerNoActive} className='Menu-Buttons-Style-Img' />
-                                <p onClick={() =>{changeMode(true)}} className='Menu-Buttons-Style-Text'>Pasajero</p>
+                                <p onClick={() =>{changeMode(true)}} className='Menu-Buttons-Style-Text'><FormattedMessage id="passenger"/></p>
                             </div>
                             <div className='Menu-Buttons-Style'>
                                 <img alt='ConductorIcon' src={driverActive} className='Menu-Buttons-Style-Img' />
-                                <p className='Menu-Buttons-Style-Text'>Conductor</p>
+                                <p className='Menu-Buttons-Style-Text'><FormattedMessage id="driver"/></p>
                             </div>
                         </div>
                         <Footer></Footer>
@@ -120,7 +121,7 @@ export const Home = () => {
                                                                     //localStorage.removeItem('token');
                                                                     //setUser(null);
                                                                 }}>
-                            Logout
+                            <FormattedMessage id="logout"/>
                         </button>
                     </div></>
                 )}
