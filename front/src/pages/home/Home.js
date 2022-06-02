@@ -90,7 +90,7 @@ export const Home = () => {
                     </div>
                  :
                     <div className="Menu">
-                        <Button className='Menu-Search'
+                        <button className='Menu-Search'
                             onClick={() => setOpen(!open)}
                             aria-controls="example-collapse-text"
                             aria-expanded={open}

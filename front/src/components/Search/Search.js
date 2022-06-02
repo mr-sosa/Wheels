@@ -6,7 +6,6 @@ import "./Search.scss";
 import { useForm } from "../../hooks/useForm";
 
 export const Search = (props) => {
-
   const [detailTrip, setDetailTrip] = useContext(TripContext);
 
   const [isExpanded, setExpanded] = useState(false);
@@ -56,39 +55,61 @@ export const Search = (props) => {
     console.log(detailTrip);
   }
 
-  const [formValues, handleInputChange] = useForm({});
-
-  const { localidadO, localidadD } = formValues;
-
-   // the value of the search field 
-   const [loaclidadOrg, setLocalidadOrg] = useState('');
-
-   // the search result
-   const [foundLoaclidadOrg, setFoundLoaclidadOrg] = useState(trips);
-
-  const divStyle={
-    overflowY: 'scroll',
-    border:'0px',
-    float: 'left',
-    height:'300px',
-    position:'relative'
+  const divStyle = {
+    overflowY: "scroll",
+    border: "0px",
+    float: "left",
+    height: "300px",
+    position: "relative",
   };
 
-  const filter = (event) => {
-    const keyword = event.target.value;
+  // the value of the search field 
+  const [localidadO, setLocalidadO] = useState('');
+  // the search result
+  const [foundLoaclidadOrg, setFoundLoaclidadOrg] = useState(trips);
 
-    if (keyword !== '') {
+  const filterLocOrg = (event) => {
+    
+    const x = event.target.value;
+    //var x = document.getElementById("localidadOrigen").value;
+
+    if (x !== "Seleccione una opción...") {
       const results = trips.filter((elm) => {
         return elm.originLocality;
-         //Use the toLowerCase() method to make it case-insensitive
       });
       setFoundLoaclidadOrg(results);
+      console.log(foundLoaclidadOrg);
     } else {
-        setFoundLoaclidadOrg(trips);
-       //If the text field is empty, show all users
+      setFoundLoaclidadOrg(trips);
+      //If the text field is empty, show all users
+      console.log("paila");
     }
-    console.log(keyword);
-    setLocalidadOrg(keyword);
+
+    setLocalidadO(x)
+  }
+
+  // the value of the search field 
+  const [localidadD, setLocalidadD] = useState('');
+  // the search result
+  const [foundLoaclidadDest, setFoundLoaclidadDest] = useState(trips);
+
+  const filterLocDest = (event) => {
+    
+    const x = event.target.value;
+
+    if (x !== "Seleccione una opción...") {
+      const results = trips.filter((elm) => {
+        return elm.originLocality;
+      });
+      setFoundLoaclidadDest(results);
+      console.log(foundLoaclidadDest);
+    } else {
+        setFoundLoaclidadDest(trips);
+      //If the text field is empty, show all users
+      console.log("paila");
+    }
+
+    setLocalidadD(x)
   }
 
   return (
@@ -115,12 +136,13 @@ export const Search = (props) => {
                     className="form-control"
                     name="Localidad Origen"
                     value={localidadO}
-                    onChange={filter}
+                    onChange={filterLocOrg}
                   >
                     <option className="form-option" selected>
                       Seleccione una opción...
                     </option>
                     <option className="form-option">Uniandes</option>
+                    <option className="form-option">Suba</option>
                     <option className="form-option">Barrios Unidos</option>
                     <option className="form-option">Chapinero</option>
                     <option className="form-option">Engativá</option>
@@ -129,9 +151,7 @@ export const Search = (props) => {
                   </select>
                 </div>
               </div>
-              <div className="col">
-                <p>{localidadO}</p>
-              </div>
+              <div className="col"></div>
             </div>
             <div className="row">
               <div className="col">
@@ -144,7 +164,7 @@ export const Search = (props) => {
                     className="form-control"
                     name="Localidad Destino"
                     value={localidadD}
-                    onChange={handleInputChange}
+                    onChange={filterLocDest}
                   >
                     <option className="form-option" selected>
                       Seleccione una opción...
@@ -161,17 +181,17 @@ export const Search = (props) => {
               <div className="col"></div>
             </div>
             <div style={divStyle} className="row">
-              {trips.map((elm, index) => (
-                <Post
-                  onClick={() => {
-                    onClick(elm);
-                  }}
-                  key={index}
-                  hour={elm.hour}
-                  route={elm.route}
-                  cost={elm.cost}
-                ></Post>
-              ))}
+                {trips.map((elm, index) => (
+                  <Post
+                    onClick={() => {
+                      onClick(elm);
+                    }}
+                    key={index}
+                    hour={elm.hour}
+                    route={elm.route}
+                    cost={elm.cost}
+                  ></Post>
+                ))};
             </div>
           </div>
         </div>
@@ -179,4 +199,3 @@ export const Search = (props) => {
     </div>
   );
 };
-
