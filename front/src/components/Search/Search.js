@@ -170,6 +170,7 @@ export const Search = (props) => {
                       Seleccione una opción...
                     </option>
                     <option className="form-option">Uniandes</option>
+                    <option className="form-option">Suba</option>
                     <option className="form-option">Barrios Unidos</option>
                     <option className="form-option">Chapinero</option>
                     <option className="form-option">Engativá</option>
@@ -181,7 +182,7 @@ export const Search = (props) => {
               <div className="col"></div>
             </div>
             <div style={divStyle} className="row">
-                {trips.map((elm, index) => (
+                {foundLoaclidadOrg.map((elm, index) => (
                   <Post
                     onClick={() => {
                       onClick(elm);
@@ -191,7 +192,7 @@ export const Search = (props) => {
                     route={elm.route}
                     cost={elm.cost}
                   ></Post>
-                ))};
+                ))}
             </div>
           </div>
         </div>

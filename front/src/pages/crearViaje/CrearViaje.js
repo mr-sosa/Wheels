@@ -75,6 +75,7 @@ export const CrearViaje = () => {
             >
             <option selected>Seleccione una opción...</option>
             <option>Uniandes</option>
+            <option>Suba</option>
             <option>Barrios Unidos</option>
             <option>Chapinero</option>
             <option>Engativá</option>
