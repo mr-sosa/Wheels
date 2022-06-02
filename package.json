@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "deploy": "gh-pages -d ./front/build",
-    "build": "cd ./front && npm run build"
+    "build": "cd ./front && npm install && npm run build"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
