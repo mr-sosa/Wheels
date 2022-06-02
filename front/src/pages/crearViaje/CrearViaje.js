@@ -4,10 +4,7 @@ import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
 import { Map } from '../../components/Map/Map';
-<<<<<<< HEAD
 import { Button, Modal } from 'react-bootstrap';
-=======
->>>>>>> bf4037b38bdda2e2666165ed95f2979abc0d105d
 import { Navigate } from 'react-router';
 
 export const CrearViaje = () => {
