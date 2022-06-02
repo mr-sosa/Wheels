@@ -1,0 +1,25 @@
+import React, { createContext, useReducer } from "react";
+import { ThemeContext } from "../context/UserContext";
+
+const initialState = {
+  pMode: false,
+};
+
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case "CMODE":
+      return { pMode: false };
+    case "PMODE":
+      return { pMode: true };
+    default:
+      return state;
+  }
+};
+
+const ThemeProvider = (props) => {
+  const [state, dispatch] = useReducer(themeReducer, initialState);
+
+  return <ThemeContext.Provider value={{ state, dispatch }}>{props.children}</ThemeContext.Provider>;
+}
+
+export default ThemeProvider;
