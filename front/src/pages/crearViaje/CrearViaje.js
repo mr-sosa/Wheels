@@ -4,10 +4,7 @@ import { useForm } from './../../hooks/useForm';
 import './CrearViaje.scss';
 
 import { Map } from '../../components/Map/Map';
-<<<<<<< HEAD
 import { Button, Modal } from 'react-bootstrap';
-=======
->>>>>>> bf4037b38bdda2e2666165ed95f2979abc0d105d
 import { Navigate } from 'react-router';
 
 export const CrearViaje = () => {
@@ -56,8 +53,11 @@ export const CrearViaje = () => {
         console.log(err);
       }
 
-      return(<Navigate to="/home" />);
+      return(<Navigate to="/" />);
   };
+
+  let date = new Date();
+  const output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
 
   return (
     <div className='crearViaje-container'>
@@ -146,6 +146,7 @@ export const CrearViaje = () => {
             name='precio'
             className='form-control'
             placeholder='4000'
+            defaultValue= '4000'
             autoComplete='off'
             value={precio}
             onChange={handleInputChange}
@@ -161,6 +162,7 @@ export const CrearViaje = () => {
             name='cupos'
             className='form-control'
             placeholder='4'
+            defaultValue='4'
             autoComplete='off'
             value={cupos}
             onChange={handleInputChange}
@@ -192,6 +194,7 @@ export const CrearViaje = () => {
             name='flexible'
             className='form-check'
             label = 'Flexible'
+            defaultChecked = 'true'
             checked={checked}
             onChange={(e) => setChecked(e.target.checked)}
           />
@@ -205,6 +208,7 @@ export const CrearViaje = () => {
             type='date'
             name='fecha'
             className='form-control'
+            defaultValue={output}
             value={fecha}
             onChange={handleInputChange}
           />
