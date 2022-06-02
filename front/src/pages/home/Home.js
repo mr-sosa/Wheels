@@ -80,11 +80,11 @@ export const Home = () => {
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
                                 <img alt='PasajeroIcon' src={passengerActive} className='Menu-Buttons-Style-Img' />
-                                <p className='Menu-Buttons-Style-Text'><FormattedMessage id="passenger"/></p>
+                                <p className='Menu-Buttons-Style-Text'>Pasajero</p>
                             </div>
                             <div className='Menu-Buttons-Style'>
                                 <img alt='ConductorIcon' src={driverNoActive} className='Menu-Buttons-Style-Img' />
-                                <p onClick={() =>changeMode(false)} className='Menu-Buttons-Style-Text'><FormattedMessage id="driver"/></p>
+                                <p onClick={() =>changeMode(false)} className='Menu-Buttons-Style-Text'>Conductor</p>
                             </div>
                         </div>
                         <Footer></Footer>
@@ -96,7 +96,7 @@ export const Home = () => {
                             aria-controls="example-collapse-text"
                             aria-expanded={open}
                         >
-                            <FormattedMessage id="create_trip"/>
+                            Crear viaje
                         </Button>
                         <Collapse in={open}>
                             <div className='Menu-Search'><CrearViaje></CrearViaje></div>
@@ -104,11 +104,11 @@ export const Home = () => {
                         <div className="Menu-Buttons">
                             <div className='Menu-Buttons-Style'>
                                 <img alt='PasajeroIcon' src={passengerNoActive} className='Menu-Buttons-Style-Img' />
-                                <p onClick={() =>{changeMode(true)}} className='Menu-Buttons-Style-Text'><FormattedMessage id="passenger"/></p>
+                                <p onClick={() =>{changeMode(true)}} className='Menu-Buttons-Style-Text'>Pasajero</p>
                             </div>
                             <div className='Menu-Buttons-Style'>
                                 <img alt='ConductorIcon' src={driverActive} className='Menu-Buttons-Style-Img' />
-                                <p className='Menu-Buttons-Style-Text'><FormattedMessage id="driver"/></p>
+                                <p className='Menu-Buttons-Style-Text'>Conductor</p>
                             </div>
                         </div>
                         <Footer></Footer>
@@ -121,7 +121,7 @@ export const Home = () => {
                                                                     //localStorage.removeItem('token');
                                                                     //setUser(null);
                                                                 }}>
-                            <FormattedMessage id="logout"/>
+                            Logout
                         </button>
                     </div></>
                 )}

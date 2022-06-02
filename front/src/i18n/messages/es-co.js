@@ -13,11 +13,7 @@ const spanish = {
     products: 'Productos',
     contact: 'Contacto',
     passenger: "Pasajero",
-<<<<<<< HEAD
     Driver: "Conductor",
-=======
-    driver: "Conductor",
->>>>>>> master
     where: "¿A dónde vas?",
     create_trip: "Crear Viaje",
     select: "Seleccione una opción",
@@ -31,10 +27,6 @@ const spanish = {
     route: "Ruta",
     flexible: "Flexible",
     date: "Fecha"
-<<<<<<< HEAD
-=======
-
->>>>>>> master
   },
 };
 
