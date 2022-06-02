@@ -5,7 +5,8 @@
   "homepage": "https://mr-sosa.github.io/202210_S2_E2",
   "scripts": {
     "start": "nodemon ./bin/www",
-    "deploy": "gh-pages -d ./front/build"
+    "deploy": "gh-pages -d ./front/build",
+    "build": "cd ./front && npm run build"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
