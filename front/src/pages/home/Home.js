@@ -34,21 +34,20 @@ export const Home = () => {
   //const { setUser, user } = useContext(UserContext);
 
   const [pMode, changeMode] = useState(true);
-    
-
 
   const onClick2 = () => setShowResults(false);
 
   useEffect(() => {
     const userLocalStorage = localStorage.getItem("username");
-        if(userLocalStorage != null){
-            //setUser({
-            //    name: userLocalStorage,
-            //    token: localStorage.getItem('token')
-            //});
-        }
+
+    if (userLocalStorage != null) {
+      //setUser({
+      //    name: userLocalStorage,
+      //    token: localStorage.getItem('token')
+      //});
+    }
     // }, [setUser]
-    });
+  });
 
   const [detailTrip, setDetailTrip] = useState("");
   /*function callbackTripDetail(tripId){
@@ -87,6 +86,7 @@ export const Home = () => {
                                 <p onClick={() =>changeMode(false)} className='Menu-Buttons-Style-Text'>Conductor</p>
                             </div>
                         </div>
+                        <Footer></Footer>
                     </div>
                  :
                     <div className="Menu">
@@ -110,6 +110,7 @@ export const Home = () => {
                                 <p className='Menu-Buttons-Style-Text'>Conductor</p>
                             </div>
                         </div>
+                        <Footer></Footer>
                     </div>
                 }
                 <Map></Map>
