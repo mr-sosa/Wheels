@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import useCollapse from "react-collapsed";
 import { TripContext } from "../../context/TripContext";
 import { Post } from "../Post/Post";
@@ -60,6 +60,12 @@ export const Search = (props) => {
 
   const { localidadO, localidadD } = formValues;
 
+   // the value of the search field 
+   const [loaclidadOrg, setLocalidadOrg] = useState('');
+
+   // the search result
+   const [foundLoaclidadOrg, setFoundLoaclidadOrg] = useState(trips);
+
   const divStyle={
     overflowY: 'scroll',
     border:'0px',
@@ -67,6 +73,23 @@ export const Search = (props) => {
     height:'300px',
     position:'relative'
   };
+
+  const filter = (event) => {
+    const keyword = event.target.value;
+
+    if (keyword !== '') {
+      const results = trips.filter((elm) => {
+        return elm.originLocality;
+         //Use the toLowerCase() method to make it case-insensitive
+      });
+      setFoundLoaclidadOrg(results);
+    } else {
+        setFoundLoaclidadOrg(trips);
+       //If the text field is empty, show all users
+    }
+    console.log(keyword);
+    setLocalidadOrg(keyword);
+  }
 
   return (
     <div className="Search">
@@ -92,7 +115,7 @@ export const Search = (props) => {
                     className="form-control"
                     name="Localidad Origen"
                     value={localidadO}
-                    onChange={handleInputChange}
+                    onChange={filter}
                   >
                     <option className="form-option" selected>
                       Seleccione una opción...
