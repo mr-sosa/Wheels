@@ -63,13 +63,12 @@ export const Search = (props) => {
     position: "relative",
   };
 
-  // the value of the search field 
-  const [localidadO, setLocalidadO] = useState('');
+  // the value of the search field
+  const [localidadO, setLocalidadO] = useState("");
   // the search result
   const [foundLoaclidadOrg, setFoundLoaclidadOrg] = useState(trips);
 
   const filterLocOrg = (event) => {
-    
     const x = event.target.value;
     //var x = document.getElementById("localidadOrigen").value;
 
@@ -85,32 +84,33 @@ export const Search = (props) => {
       console.log("paila");
     }
 
-    setLocalidadO(x)
-  }
+    setLocalidadO(x);
+  };
 
-  // the value of the search field 
-  const [localidadD, setLocalidadD] = useState('');
+  // the value of the search field
+  const [localidadD, setLocalidadD] = useState("");
   // the search result
   const [foundLoaclidadDest, setFoundLoaclidadDest] = useState(trips);
 
   const filterLocDest = (event) => {
-    
     const x = event.target.value;
 
-    if (x !== "Seleccione una opción...") {
+    if (x !== "") {
       const results = trips.filter((elm) => {
         return elm.originLocality;
       });
       setFoundLoaclidadDest(results);
       console.log(foundLoaclidadDest);
+    } else if (x === "Seleccione una opción...") {
+      setFoundLoaclidadDest(trips);
     } else {
-        setFoundLoaclidadDest(trips);
+      setFoundLoaclidadDest(trips);
       //If the text field is empty, show all users
       console.log("paila");
     }
 
-    setLocalidadD(x)
-  }
+    setLocalidadD(x);
+  };
 
   return (
     <div className="Search">
@@ -182,17 +182,17 @@ export const Search = (props) => {
               <div className="col"></div>
             </div>
             <div style={divStyle} className="row">
-                {foundLoaclidadOrg.map((elm, index) => (
-                  <Post
-                    onClick={() => {
-                      onClick(elm);
-                    }}
-                    key={index}
-                    hour={elm.hour}
-                    route={elm.route}
-                    cost={elm.cost}
-                  ></Post>
-                ))}
+              {foundLoaclidadOrg.map((elm, index) => (
+                <Post
+                  onClick={() => {
+                    onClick(elm);
+                  }}
+                  key={index}
+                  hour={elm.hour}
+                  route={elm.route}
+                  cost={elm.cost}
+                ></Post>
+              ))}
             </div>
           </div>
         </div>
