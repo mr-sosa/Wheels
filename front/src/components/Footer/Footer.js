@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import "./Footer.scss";
 
 export const Footer = () => {
@@ -16,85 +17,85 @@ export const Footer = () => {
           <div className="container py-5">
             <div className="row justify-content-center">
               <div className="col-sm-4 col-md-3 item">
-                <h3 className="titulo">Services</h3>
+                <h3 className="titulo"><FormattedMessage id='footer_services' /></h3>
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a className="text" href="#">
-                      Web design
+                      <FormattedMessage id='footer_webDesign' />
                     </a>
                   </li>
                   <li>
                     <a className="text" href="#">
-                      Development
+                      <FormattedMessage id='footer_development' />
                     </a>
                   </li>
                   <li>
                     <a className="text" href="#">
-                      Hosting
+                      <FormattedMessage id='footer_hosting' />
                     </a>
                   </li>
                 </ul>
               </div>
               <div className="col-sm-4 col-md-3 item">
-                <h3 className="titulo">About</h3>
+                <h3 className="titulo"><FormattedMessage id='footer_about' /></h3>
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a className="text" href="#">
-                      Company
+                      <FormattedMessage id='footer_company' />
                     </a>
                   </li>
                   <li>
                     <a className="text" href="#">
-                      Team
+                      <FormattedMessage id='footer_team' />
                     </a>
                   </li>
                   <li>
                     <a className="text" href="#">
-                      Legacy
+                      <FormattedMessage id='footer_legacy' />
                     </a>
                   </li>
                 </ul>
               </div>
               <div className="col-sm-4 col-md-3 item">
-                <h3 className="titulo">Careers</h3>
+                <h3 className="titulo"><FormattedMessage id='footer_careers' /></h3>
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a className="text" href="#">
-                      Job openings
+                      <FormattedMessage id='footer_job' />
                     </a>
                   </li>
                   <li>
                     <a className="text" href="#">
-                      Employee success
+                      <FormattedMessage id='footer_success' />
                     </a>
                   </li>
                   <li>
                     <a className="text" href="#">
-                      Benefits
+                      <FormattedMessage id='footer_benefits' />
                     </a>
                   </li>
                 </ul>
               </div>
               <div className="col-lg-3 item social">
-                <h3 className="titulo">Social</h3>
+                <h3 className="titulo"><FormattedMessage id='footer_social' /></h3>
                 <div className="row">
                   <div className="col">
-                    <a className="text" href="#">
+                    <a className="text" href="#" aria-label="Facebook"> 
                       <i className="icon ion-social-facebook blackiconcolor"></i>
                     </a>
                   </div>
                   <div className="col">
-                    <a className="text" href="#">
+                    <a className="text" href="#" aria-label="Twitter"> 
                       <i className="icon ion-social-twitter"></i>
                     </a>
                   </div>
                   <div className="col">
-                    <a className="text" href="#">
+                    <a className="text" href="#" aria-label="Snapchat"> 
                       <i className="icon ion-social-snapchat"></i>
                     </a>
                   </div>
                   <div className="col">
-                    <a className="text" href="#">
+                    <a className="text" href="#" aria-label="Instagram"> 
                       <i className="icon ion-social-instagram"></i>
                     </a>
                   </div>
@@ -102,10 +103,10 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="foot-cpr py-4">
+          <div className="foot-cpr py-4 copyright">
             <div className="container text-center">
               <p className="text mb-0 py-2">
-                Wheels App © 2022 All rights reserved.
+                <FormattedMessage id='footer_cpr' />
               </p>
             </div>
           </div>
