@@ -76,6 +76,16 @@ This project represents my ability to build a complete, scalable, production-rea
 
 ---
 
+## 🛡️ License & Copyright
+
+This project is protected under a modified MIT License.  
+You may **view and reference** the code for learning purposes.  
+Forking, reusing, or distributing any part of this software **without explicit permission** is not allowed.
+
+© 2025 Manuel Ricardo Sosa Montañez. All rights reserved.
+
+---
+
 ## 🛠 Deployment
 
 To run locally:
