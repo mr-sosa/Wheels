@@ -15,8 +15,8 @@ The platform is inspired by services like Uber or Didi, but adapted for internal
 
 ## 🌐 Live Demo
 
-🔗 [https://app-wheels-uniandes.herokuapp.com](https://app-wheels-uniandes.herokuapp.com)
-
+🔗 [https://wheels.onrender.com/](https://wheels.onrender.com/)
+✍🏼 [Figma Design](https://www.figma.com/design/HzNsThbmLozwM6tVZ2ximn/Wheels?node-id=0-1&t=dstsuNKq02kKr8TE-1)
 🎥 [Functionality Video](https://youtu.be/GFCHY5FEaYo)  
 
 ---
