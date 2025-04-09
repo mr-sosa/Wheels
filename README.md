@@ -17,8 +17,7 @@ The platform is inspired by services like Uber or Didi, but adapted for internal
 
 🔗 [https://app-wheels-uniandes.herokuapp.com](https://app-wheels-uniandes.herokuapp.com)
 
-🎥 [Functionality Video](https://youtu.be/37pe-a_cOmc)  
-🎥 [Demo Walkthrough](https://youtu.be/GFCHY5FEaYo)
+🎥 [Functionality Video](https://youtu.be/GFCHY5FEaYo)  
 
 ---
 
