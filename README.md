@@ -2,31 +2,95 @@
 
 # Wheels
 
-## Descripción del proyecto
+# 🚗 Wheels - Carpooling Web App (Full Stack)
 
-Nuestro proyecto consiste en que usuarios de la Universidad de los Andes puedan ya sea trasladar o ser trasladado por otros miembros de la comunidad uniandina a sus destinos. 
+**Wheels** is a full-stack carpooling web app developed as a graduation project at Universidad de los Andes.  
+It allows users within the university to **offer** or **join** shared rides securely, promoting community-driven mobility.
 
-Los usuarios pueden ser de tipo conductor o pasajero:
-- El pasajero puede reservar viajes y cancelar el cupo.
-- El conductor puede crear viajes, actualizarlos y eliminarlos. Pero también tiene las funcionalidades de un pasajero.
+The platform is inspired by services like Uber or Didi, but adapted for internal use. The project includes both **frontend and backend**, fully developed by one person using scalable and modern technologies.
 
-Para poder utilizar la aplicación se debe iniciar sesión primero, si no se conoce el userName y constraseña entonces se debe registrar primero.
+🏆 **Awarded Best Innovative Project** at Universidad de los Andes.
 
-## URL live demo
-https://app-wheels-uniandes.herokuapp.com/
+---
 
-## Instrucciones de uso
+## 🌐 Live Demo
 
-1. Registrarse con usuario, contraseña, email, nombre, telefono, la dirección preferente (casa) e indicar si es conductor o pasajero. En caso de ser conductor debe añadir la información de su vehículo.
-2. Realizar el login en la aplicación con el usuario y contraseña registrados. 
-3. Se puede proceder a utilizar las funcionalidades propias de cada rol: consultar, actualizar y eliminar información, crear, actualizar, reservar y cancelar viajes. Los endpoints válidos, junto con los parámetros adecuados se encuentran en la Wiki.
+🔗 [https://app-wheels-uniandes.herokuapp.com](https://app-wheels-uniandes.herokuapp.com)
 
-## URL video funcionalidad
+🎥 [Functionality Video](https://youtu.be/37pe-a_cOmc)  
+🎥 [Demo Walkthrough](https://youtu.be/GFCHY5FEaYo)
 
-https://youtu.be/37pe-a_cOmc
+---
 
-## Para desplegar la aplicación:
-Primero se deben actualizar las dependencias de las librerias con npm install tanto en la carpeta raíz como en la carpta front. Posteriormente ejecutar npm run build en la carpeta front y por último en la carpeta raíz npm run start. Con esto la aplicación estará totalmente desplegada en el http://localhost:3001/ 
+## 🧠 Tech Stack
 
-## URL video demo
-https://youtu.be/GFCHY5FEaYo
+### 🔹 Frontend
+- React.js (Vite)
+- Tailwind CSS
+- React Router
+- React Hook Form + Zod
+
+### 🔹 Backend
+- NestJS (Node.js)
+- PostgreSQL + Prisma ORM
+- JWT Authentication
+- RESTful API
+
+---
+
+## ✨ Functionality Overview
+
+👤 **User Roles**
+- **Passenger:** Can register, login, view available rides, reserve and cancel seats.
+- **Driver:** Inherits all passenger features + can create, update, and delete ride offers. Must register vehicle info.
+
+🔒 **Authentication**
+- Users must register and log in to use the app.
+- Sessions managed with JWT and protected endpoints.
+
+---
+
+## 📋 Usage Instructions
+
+1. Register with your info (email, username, password, address, and role).  
+   If driver, also input vehicle details.
+
+2. Login using your credentials.
+
+3. Navigate the app based on your role:  
+   - **Passengers** can browse and book available rides.  
+   - **Drivers** can create, edit, or cancel ride offers.
+
+4. The backend exposes a full REST API (see [Wiki/API Docs](#) for endpoints).
+
+---
+
+👨‍💻 About Me
+Manuel Ricardo Sosa Montañez
+Full Stack Developer | Node.js, NestJS, React, GraphQL, PostgreSQL
+
+I'm passionate about building real solutions with clean architecture and a strong focus on usability and performance.
+This project represents my ability to build a complete, scalable, production-ready platform end-to-end.
+
+💼 LinkedIn
+📧 mr.sosa@uniandes.edu.co
+
+---
+
+## 🛠 Deployment
+
+To run locally:
+
+```bash
+# Install frontend & backend dependencies
+cd frontend && npm install
+cd ../backend && npm install
+
+# Build frontend
+cd ../frontend && npm run build
+
+# Run backend server (serves frontend too)
+cd ../backend && npm run start
+
+
+
